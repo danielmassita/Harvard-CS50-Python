@@ -38,5 +38,10 @@ Functions are verbs or actions that the computer or computer language will alrea
 In your hello.py program, the print function knows how to print to the terminal window.
 The print function takes arguments. In this case, "hello, world" are the arguments that the print function takes.
 
+Bugs
+Bugs are a natural part of coding. These are mistakes, problems for you to solve! Don’t get discouraged! This is part of the process of becoming a great programmer.
+Imagine in our hello.py program that accidentally typed print("hello, world" notice that we missed the final ) required by the compiler. If I purposefully make this mistake, you’ll the compiler will output an error in the terminal window!
+Often, the error messages will inform you of your mistake and provide you clues on how to fix them. However, there will be many times that the compiler is not this kind.
+
 
 """
