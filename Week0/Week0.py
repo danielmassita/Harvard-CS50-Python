@@ -43,5 +43,56 @@ Bugs are a natural part of coding. These are mistakes, problems for you to solve
 Imagine in our hello.py program that accidentally typed print("hello, world" notice that we missed the final ) required by the compiler. If I purposefully make this mistake, you’ll the compiler will output an error in the terminal window!
 Often, the error messages will inform you of your mistake and provide you clues on how to fix them. However, there will be many times that the compiler is not this kind.
 
+Improving Your First Python Program
+We can personalize your first Python program.
+In our text editor in hello.py we can add another function. input is a function that takes a prompt as an argument. We can edit our code to say
+    input("What's your name? ")
+    print("hello, world")
+This edit alone, however, will not allow your program to output what your user inputs. For that, we will need to introduce you to variables
+
+Variables
+A variable is just a container for a value within your own program.
+In your program, you can introduce your own variable in your program by editing it to read
+    name = input("What's your name? ")
+    print("hello, world")
+Notice that this equal = sign in the middle of name = input("What's your name? ") has a special role in programming. This equal sign literally assigns what is on the right to what is on the left. Therefore, the value returned by input("What's your name? ") is assigned to name.
+
+If you edit your code as follows, you will notice an error
+    name = input("What's your name? ")
+    print("hello, name")
+The program will return hello, name in the terminal window regardless of what the user types.
+Further editing our code, you could type
+    name = input("What's your name? ")
+    print("hello,")
+    print(name)
+The result in the terminal window would be
+    What's your name? David
+    hello
+    David
+We are getting closer to the result we might intend!
+You can learn more in Python’s documentation on data types.
+
+Comments
+Comments are a way for programmers to track what they are doing in their programs and even inform others about their intentions for a block of code. In short, they are notes for yourself and others that will see your code!
+You can add comments to your program to be able to see what it is that your program is doing. You might edit your code as follows:
+    # Ask the user for their name
+    name = input("What's your name? ")
+    print("hello,")
+    print(name)
+Comments can also serve as to-do list for you.
+
+Pseudocode
+Pseudocode is an important type of comment that becomes a special type of to-do list, especially when you don’t understand how to accomplish a coding task. For example, in your code, you might edit your code to say:
+    # Ask the user for their name
+    name = input("What's your name? ")
+
+    # Print hello
+    print("hello,")
+
+    # Print the name inputted
+    print(name)
+
+
+
 
 """
