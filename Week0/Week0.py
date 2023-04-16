@@ -56,7 +56,6 @@ In your program, you can introduce your own variable in your program by editing 
     name = input("What's your name? ")
     print("hello, world")
 Notice that this equal = sign in the middle of name = input("What's your name? ") has a special role in programming. This equal sign literally assigns what is on the right to what is on the left. Therefore, the value returned by input("What's your name? ") is assigned to name.
-
 If you edit your code as follows, you will notice an error
     name = input("What's your name? ")
     print("hello, name")
@@ -92,7 +91,19 @@ Pseudocode is an important type of comment that becomes a special type of to-do 
     # Print the name inputted
     print(name)
 
-
+Further Improving Your First Python Program
+We can further edit our code as follows:
+    # Ask the user for their name
+    name = input("What's your name? ")
+    # Print hello and the inputted name
+    print("hello, " + name)
+It turns out that some functions take many arguments.
+We can use a comma , to pass in multiple arguments by editing our code as follows:
+    # Ask the user for their name
+    name = input("What's your name? ")
+    # Print hello and the inputted name
+    print("hello,", name)
+The output in the terminal, if we typed “David” we would be hello, David. Success.
 
 
 """
