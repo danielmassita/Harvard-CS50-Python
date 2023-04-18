@@ -84,10 +84,8 @@ Pseudocode
 Pseudocode is an important type of comment that becomes a special type of to-do list, especially when you don’t understand how to accomplish a coding task. For example, in your code, you might edit your code to say:
     # Ask the user for their name
     name = input("What's your name? ")
-
     # Print hello
     print("hello,")
-
     # Print the name inputted
     print(name)
 
@@ -104,6 +102,38 @@ We can use a comma , to pass in multiple arguments by editing our code as follow
     # Print hello and the inputted name
     print("hello,", name)
 The output in the terminal, if we typed “David” we would be hello, David. Success.
+
+Strings and Paremeters
+A string, known as a str in Python, is a sequence of text.
+Rewinding a bit in our code back to the following, there was a visual side effect of having the result appear on multiple lines:
+    # Ask the user for their name
+    name = input("What's your name? ")
+    print("hello,")
+    print(name)
+Functions take arguments that influence their behavior. If we look at the documentation for print you’ll notice we can learn a lot about the arguments that the print function takes.
+Looking at this documentation, you’ll learn that the print function automatically include a piece of code end='\n'. This \n indicates that the print function will automatically create a line break when run. The print function takes an argument called end` and the default is to create a new line.
+However, we can technically provide an argument for end ourselves such that a new line is not created!
+We can modify our code as follows:
+    # Ask the user for their name
+    name = input("What's your name? ")
+    print("hello,", end="")
+    print(name)
+  By providing end="" we are over-writing the default value of end such that it never creates a new line after this first print statement. Providing the name as “David”, the output in the terminal window will be hello, David.
+Parameters, therefore, are arguments that can be taken by a function.
+You can learn more in Python’s documentation on print.
+
+A small problem with quotation marks
+Notice how adding quotation marks as part of your string is challenging.
+print("hello,"friend"") will not work and the compiler will throw an error.
+Generally, there are two approaches to fixing this. First, you could simply change the quotes to single quote marks.
+Another, more commonly used approach would be code as print("hello, \"friend\""). The backslashes tell the compiler that the following character should be considered a quotation mark in the string and avoid a compiler error.
+
+Formatting Strings
+Probably the most elegant way to use strings would be as follows:
+    # Ask the user for their name
+    name = input("What's your name? ")
+    print(f"hello, {name}")
+  Notice the f in print(f"hello, {name}"). This f is a special indicator to Python to treat this string a special way, different than previous approaches we have illustrated in this lecture. Expect that you will be using this style of strings quite frequently in this course.
 
 
 """
