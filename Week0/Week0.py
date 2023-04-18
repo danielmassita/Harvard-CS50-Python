@@ -135,5 +135,98 @@ Probably the most elegant way to use strings would be as follows:
     print(f"hello, {name}")
   Notice the f in print(f"hello, {name}"). This f is a special indicator to Python to treat this string a special way, different than previous approaches we have illustrated in this lecture. Expect that you will be using this style of strings quite frequently in this course.
 
+Integers or int
+In Python, an integer is referred to as an int.
+In the world of mathematics, we are familiar with +, -, *, /, and % operators. That last operator % or modulo operator may not be very familiar to you.
+You don’t have to use the text editor window in your compiler to run Python code. Down in your terminal, you can run python alone. You will be presented with >>> in the terminal window. You can then run live, interactive code. You could type 1+1 and it will run that calculation. This mode will not commonly be used during this course.
+Opening up VS Code again, we can type code calculator.py in the terminal. This will create a new file in which we will create our own calculator.
+First, we can declare a few variables.
+    x = 1
+    y = 2
+    z = x + y
+    print(z)
+Naturally, when we run python calculator.py we get the result in the terminal window of 3. We can make this more interactive using the input function.
+    x = input("What's x? ")
+    y = input("What's y? ")
+    z = x + y
+    print(z)
+Running this program, we discover that the output is incorrect as 12. Why might this be?
+Prior, we have seen how the + sign concatenates two strings. Because your input from your keyboard on your computer comes into the compiler as text, it is treated a string. We, therefore, need to convert this input from a string to an integer. We can do so as follows:
+    x = input("What's x? ")
+    y = input("What's y? ")
+    z = int(x) + int(y)
+    print(z)
+The result is now correct. The use of int(x), is called “casting” where a value is temporarily changed from one type of variable (in this case a string) to another (here, an integer).
+We can further improve our program as follows:
+    x = int(input("What's x? "))
+    y = int(input("What's y? "))
+    print(x + y)
+This illustrates that you can run functions on functions. The most inner function is run first, and then the outer one is run. First, the input function is run. Then, the int function.
+You can learn more in Python’s Documenation of int.
+
+Readability Wins
+When deciding on your approach to a coding task, remember that one could make a reasonable argument for many approaches to the same problem.
+Regardless of what approach you take to a programming task, remember that your code must be readable. You should use comments to give yourself and others clues about what your code is doing. Further, you should create code in a way that is readable.
+
+Float Basics
+A floating point value is a real number that has a decimal point in it, such as 0.52.
+You can change your code to support floats as follows:
+    x = float(input("What's x? "))
+    y = float(input("What's y? "))
+    print(x + y)
+This change allows your user to enter 1.2 and 3.4 to present a total of 4.6.
+Let’s imagine, however, that you want to round the total to the nearest integer. Looking at the Python documentation for round you’ll see that the available arguments are round(number[n, ndigits]). Those square brackets indicate that something optional can be specified by the programmer. Therefore, you could do round(n) to round a digit to its nearest integer. Alternatively, you could code as follows:
+    # Get the user's input
+    x = float(input("What's x? "))
+    y = float(input("What's y? "))
+    # Create a rounded result
+    z = round(x + y)
+    # Print the result
+    print(z)
+  The output will be rounded to the nearest integer.
+What if we wanted to format the output of long numbers? For example, rather than seeing 1000, you may wish to see 1,000. You could modify your code as follows:
+    # Get the user's input
+    x = float(input("What's x? "))
+    y = float(input("What's y? "))
+    # Create a rounded result
+    z = round(x + y)
+    # Print the formatted result
+    print(f"{z:,}")
+Though quite cryptic, that print(f"{z:,}") creates a scenario where the outputted z will include commas where the result could look like 1,000 or 2,500.
+
+
+More on Floats
+How can we round floating point values? First, modify your code as follows:
+    # Get the user's input
+    x = float(input("What's x? "))
+    y = float(input("What's y? "))
+    # Calculate the result
+    z = x / y
+    # Print the result
+    print(z)
+  When inputting 2 as x and 3 as y, the result z is 0.6666666666 seemingly going on to infinite as we might expect.
+Let’s imagine that we want to round this down, we could modify our code as follows:
+    # Get the user's input
+    x = float(input("What's x? "))
+    y = float(input("What's y? "))
+    # Calculate the result and round
+    z = round(x / y, 2)
+    # Print the result
+    print(z)
+  As we might expect, this will round the result to the nearest two decimal points.
+We could also use fstring to format the output as follows:
+    # Get the user's input
+    x = float(input("What's x? "))
+    y = float(input("What's y? "))
+    # Calculate the result
+    z = x / y
+    # Print the result
+    print(f"{z:.2f}")
+  This cryptic fstring code displays the same as our prior rounding strategy.
+You can learn more in Python’s documentation of float.
+
+
+
+
 
 """
