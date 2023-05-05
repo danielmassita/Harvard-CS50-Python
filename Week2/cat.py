@@ -57,5 +57,42 @@ while True:
 for _ in range(n): 
     print("meow")
 
+# Removes continue
+
+while True:
+    n = int(input("What's n? "))
+    if n > 0:
+        break
+for _ in range(n):
+    print("meow")
+
+
+
+
+# Demonstrates defining functions
+
+def main():
+
+    number = get_number()
+    meow(number)
+
+
+def get_number(n):
+    while True: # forces the user into an infinit loop for correct input...
+        n = int(input("What's n? "))
+        if n > 0: # if n =< 0, keep looping for the input from user
+            break # if > 0, break the loop
+        return n # and return the n, so it can be called by another function
+
+def meow(n):
+    for _ in range(n):
+        print("meow")
+
+main()
+
+
+
+
+
 
 

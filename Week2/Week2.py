@@ -110,3 +110,55 @@ Indeed, you can edit your code as follows:
 print("meow\n" * 3, end="")
 Notice how this code produces three meows, each on a separate line. By adding end="" and the \n we tell the compiler to add a line break at the end of each meow.
 """
+
+
+
+"""
+Improving with User Input
+Perhaps we want to get input from our user. We can use loops as a way of validating the input of the user.
+A common paradigm within Python is to use a while loop to validate the input of the user.
+For example, let’s try prompting the user for a number greater than or equal 0:
+while True:
+    n = int(input("What's n? "))
+    if n < 0:
+        continue
+    else:
+        break
+Notice that we’ve introduced two new keywords in Python, continue and break. continue explicitly tells Python to go to the next iteration of a loop. break, on the other hand, tells Python to “break out” of a loop early, before it has finished all of its iterations. In this case, we’ll continue to the next iteration of the loop when n is less than 0—ultimately reprompting the user with “What’s n?”. If though, n is greater than or equal to 0, we’ll break out of the loop and allow the rest of our program to run.
+It turns out that the continue keyword is redundant in this case. We can improve our code as follows:
+
+while True:
+    n = int(input("What's n? "))
+    if n > 0:
+        break
+
+for _ in range(n):
+    print("meow")
+Notice how this while loop will always run (forever) until n is greater than 0. When n is greater than 0, the loop breaks.
+
+Bringing in our prior learning, we can use functions to further to improve our code:
+
+def main():
+    number = get_number()
+    meow(number)
+
+
+def get_number():
+    while True:
+        n = int(input("What's n? "))
+        if n > 0:
+            break
+    return n
+
+
+def meow(n):
+    for _ in range(n):
+        print("meow")
+Notice how not only did we change your code to operate in multiple functions, but we also used a return statement to return the value of n back to the main function.
+"""
+
+
+
+"""
+
+"""
