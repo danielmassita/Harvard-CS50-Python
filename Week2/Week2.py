@@ -160,5 +160,157 @@ Notice how not only did we change your code to operate in multiple functions, bu
 
 
 """
+More About Lists
+Consider the world of Hogwarts from the famed Harry Potter universe.
+In the terminal, type code hogwarts.py.
+In the text editor, code as follows:
+
+students = ["Hermoine", "Harry", "Ron"]
+
+print(students[0])
+print(students[1])
+print(students[2])
+Notice how we have a list of students with their names as above. We then print the student who is at the 0th location, “Hermoine”. Each of the other students are printed as well.
+
+Just as we illustrated previously, we can use a loop to iterate over the list. You can improve your code as follows:
+
+students = ["Hermoine", "Harry", "Ron"]
+
+for student in students:
+    print(student)
+Notice that for each student in the students list, it will print the student as intended. You might wonder why we did not use the _ designation as discussed prior. We choose not to do this because student is explicitly used in our code.
+
+You can learn more in Python’s documentation of lists.
+"""
+
+
+
+"""
+Length
+We can utilize len as a way of checking the length of the list called students.
+Imagine that you don’t simply want to print the name of the student, but also their position in the list. To accomplish this, you can edit your code as follows:
+
+students = ["Hermoine", "Harry", "Ron"]
+
+for i in range(len(students)):
+    print(i + 1, students[i])
+Notice how executing this code results in not only getting the position of each student plus one using i + 1, but also prints the name of each student. len allow you to dynamically see how long the list of the students is regardless how much it grows.
+
+You can learn more in Python’s documentation of len.
+"""
+
+
+
+"""
+Dictionaries
+dicts or dictionaries is a data structure that allows you to associate keys with values.
+Where a list is a list of multiple values, a dict associates a key with a value.
+Considering the houses of Hogwarts, we might assign specific students to specific houses.
+
+Harry Potter Names.
+
+We could use lists alone to accomplish this:
+
+students = ["Hermoine", "Harry", "Ron", "Draco"]
+houses = ["Gryffindor", "Gryffindor", "Griffindor", "Slytherin"]
+Notice that we could promise that we will always keep these lists in order. The individual at the first position of students is associated with the house at the first position of the houses list, and so on. However, this can become quite cumbersome as our lists grow!
+
+We can better our code using a dict as follows:
+
+students = {
+    "Hermoine": "Gryffindor",
+    "Harry": "Gryffindor",
+    "Ron": "Gryffindor",
+    "Draco": "Slytherin",
+}
+print(students["Hermoine"])
+print(students["Harry"])
+print(students["Ron"])
+print(students["Draco"])
+Notice how we use {} curly braces to create a dictionary. Where lists use numbers to iterate through the list, dicts allow us to use words.
+
+Run your code and make sure your output is as follows:
+
+$ python hogwarts.py
+Gryffindor
+Gryffindor
+Gryffindor
+Slytherin
+We can improve our code as follows:
+
+students = {
+    "Hermoine": "Gryffindor",
+    "Harry": "Gryffindor",
+    "Ron": "Gryffindor",
+    "Draco": "Slytherin",
+}
+for student in students:
+    print(student)
+Notice how executing this code, the for loop will only iterate through all the keys, resulting in a list of the names of the students. How could we print out both values and keys?
+
+Modify your code as follows:
+
+students = {
+    "Hermoine": "Gryffindor",
+    "Harry": "Gryffindor",
+    "Ron": "Gryffindor",
+    "Draco": "Slytherin",
+}
+for student in students:
+    print(student, students[student])
+Notice how students[student] will go to each student’s key and find the value of the their house. Execute your code and you’ll notice how the output is a bit messy.
+
+We can clean up the print function by improving our code as follows:
+
+students = {
+    "Hermoine": "Gryffindor",
+    "Harry": "Gryffindor",
+    "Ron": "Gryffindor",
+    "Draco": "Slytherin",
+}
+for student in students:
+    print(student, students[student], sep=", ")
+Notice how this creates a clean separation of a , between each item printed.
+
+If you execute python hogwarts.py, you should see the following:
+
+$ python hogwarts.py
+Hermoine, Gryffindor
+Harry, Gryffindor
+Ron, Gryffindor
+Draco, Slytherin
+What if we have more information about our students? How could we associate more data with each of the students?
+
+Harry Potter Names.
+
+You can imagine wanting to have lots of data associated multiple things with one key. Enhance your code as follows:
+
+students = [
+    {"name": "Hermoine", "house": "Gryffindor", "patronus": "Otter"},
+    {"name": "Harry", "house": "Gryffindor", "patronus": "Stag"},
+    {"name": "Ron", "house": "Gryffindor", "patronus": "Jack Russell terrier"},
+    {"name": "Draco", "house": "Slytherin", "patronus": None},
+]
+Notice how this code creates a list of dicts. The list called students has four dicts within it: One for each student. Also, notice that Python has a special None designation where there is no value associated with a key.
+
+Now, you have access to a whole host of interesting data about these students. Now, further modify you code as follows:
+
+students = [
+    {"name": "Hermoine", "house": "Gryffindor", "patronus": "Otter"},
+    {"name": "Harry", "house": "Gryffindor", "patronus": "Stag"},
+    {"name": "Ron", "house": "Gryffindor", "patronus": "Jack Russell terrier"},
+    {"name": "Draco", "house": "Slytherin", "patronus": None},
+]
+
+for student in students:
+    print(student["name"], student["house"], student["patronus"], sep=", ")
+Notice how the for loop will iterate through each of the dicts inside the list called students.
+
+You can learn more in Python’s Documentation of dicts.
+"""
+
+
+
+"""
 
 """
