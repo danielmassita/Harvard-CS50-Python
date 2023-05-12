@@ -20,6 +20,15 @@ Summing Up
 
 
 """
+
+"""
+
+
+
+
+
+
+"""
 Exceptions
 Exceptions are things that go wrong within our coding.
 In our text editor, type code hello.py to create a new file. Type as follows (with the intentional errors included):
