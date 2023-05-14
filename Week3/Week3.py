@@ -69,6 +69,29 @@ You can learn more in Python’s documentation of Errors and Exceptions.
 
 
 """
+try
+In Python try and except are ways of testing out user input before something goes wrong. Modify your code as follows:
+
+try:
+    x = int(input("What's x?"))
+    print(f"x is {x}")
+except ValueError:
+    print("x is not an integer")
+Notice how, running this code, inputting 50 will be accepted. However, typing in cat will produce an error visible to the user, instructing them why their input was not accepted.
+
+This is still not the best way to implement this code. Notice that we are trying to do two lines of code. For best practice, we should only try the fewest lines of code possible that we are concerned could fail. Adjust your code as follows:
+
+try:
+    x = int(input("What's x?"))
+except ValueError:
+    print("x is not an integer")
+
+print(f"x is {x}")
+Notice that while this accomplishes our goal of trying as few lines as possible, we now face a new error! We face a NameError where x is not defined. Look at this code and consider: Why is x not defined in some cases?
+
+Indeed, if you examine the order of operations in x = int(input("What's x?")), working right to left, it could take an incorrectly inputted character and attempt to assign it as an integer. If this fails, the assignment of the value of x never occurs. Therefore, there is no x to print on our final line of code.
+"""
+"""
 [MUSIC PLAYING] DAVID MALAN: All right, this is CS50's introduction to programming with Python. My name is David Malan. And this is our week on exceptions. Exceptions in Python as well as in other programming languages refer to problems in your code. Indeed, when something is exceptional in your program, it actually doesn't mean it's a good thing. It means something has gone wrong that, ideally, you will somehow solve. 
 
 So what are some of the things that can go wrong? So I'm going to go ahead and open up VS Code on my computer here. And in the terminal window, I'm going to go ahead and run code of hello.py. That's going to, of course, open up a brand new tab for me, hello.py, in which I can write my code. 
