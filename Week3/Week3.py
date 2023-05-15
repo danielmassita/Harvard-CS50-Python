@@ -53,6 +53,7 @@ You can learn more in Python’s documentation of Errors and Exceptions.
 """
 
 
+
 """
 Exceptions
 Exceptions are things that go wrong within our coding.
@@ -91,6 +92,45 @@ Notice that while this accomplishes our goal of trying as few lines as possible,
 
 Indeed, if you examine the order of operations in x = int(input("What's x?")), working right to left, it could take an incorrectly inputted character and attempt to assign it as an integer. If this fails, the assignment of the value of x never occurs. Therefore, there is no x to print on our final line of code.
 """
+
+
+
+"""
+else
+It turns out that there is another way to implement try that could catch errors of this nature.
+
+Adjust your code as follows:
+
+try:
+    x = int(input("What's x?"))
+except ValueError:
+    print("x is not an integer")
+else:
+    print(f"x is {x}")
+Notice that if no exception occurs, it will then run the block of code within else. Running python number.py and supplying 50, you’ll notice that the result will be printed. Trying again, this time supplying cat, you’ll notice that the program now catches the error.
+
+Considering improving our code, notice that we are being a bit rude to our user. If our user does not cooperate, we currently simply end our program. Consider how we can use a loop to prompt the user for x and if they don’t prompt again! Improve your code as follows:
+
+while True:
+    try:
+        x = int(input("What's x?"))
+    except ValueError:
+        print("x is not an integer")
+    else:
+        break
+
+print(f"x is {x}")
+Notice that while True will loop forever. If the user succeeds in supplying the correct input, we can break from the loop and then print the output. Now, a user that inputs something incorrectly will be asked for input again.
+"""
+
+
+
+"""
+
+"""
+
+
+
 """
 [MUSIC PLAYING] DAVID MALAN: All right, this is CS50's introduction to programming with Python. My name is David Malan. And this is our week on exceptions. Exceptions in Python as well as in other programming languages refer to problems in your code. Indeed, when something is exceptional in your program, it actually doesn't mean it's a good thing. It means something has gone wrong that, ideally, you will somehow solve. 
 
