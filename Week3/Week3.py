@@ -126,11 +126,37 @@ Notice that while True will loop forever. If the user succeeds in supplying the 
 
 
 """
+    else:
+            return x
 
+
+main()
+Notice that return will not only break you out of a loop, but it will also return a value.
+
+Some people may argue you could do the following:
+
+def main():
+    x = get_int()
+    print(f"x is {x}")
+
+
+def get_int():
+    while True:
+        try:
+            return int(input("What's x?"))
+        except ValueError:
+            print("x is not an integer")
+
+
+main()
+Notice this does the same thing as the previous iteration of our code, simply with fewer lines.
 """
 
 
 
+"""
+
+"""
 """
 [MUSIC PLAYING] DAVID MALAN: All right, this is CS50's introduction to programming with Python. My name is David Malan. And this is our week on exceptions. Exceptions in Python as well as in other programming languages refer to problems in your code. Indeed, when something is exceptional in your program, it actually doesn't mean it's a good thing. It means something has gone wrong that, ideally, you will somehow solve. 
 
