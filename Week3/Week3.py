@@ -126,7 +126,42 @@ Notice that while True will loop forever. If the user succeeds in supplying the 
 
 
 """
-    else:
+Creating a Function to Get an Integer
+Surely, there are many times that we would want to get an integer from our user. Modify your code as follows:
+
+def main():
+    x = get_int()
+    print(f"x is {x}")
+
+
+def get_int():
+    while True:
+        try:
+            x = int(input("What's x?"))
+        except ValueError:
+            print("x is not an integer")
+        else:
+            break
+    return x
+
+
+main()
+Notice that we are manifesting many great properties. First, we have abstracted away the ability to get an integer. Now, this whole program boils down to the first three lines of the program.
+
+Even still, we can improve this program. Consider what else you could do to improve this program. Modify your code as follows:
+
+def main():
+    x = get_int()
+    print(f"x is {x}")
+
+
+def get_int():
+    while True:
+        try:
+            x = int(input("What's x?"))
+        except ValueError:
+            print("x is not an integer")
+        else:
             return x
 
 
