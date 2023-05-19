@@ -226,6 +226,7 @@ def get_int(prompt):
 
 main()
 You can learn more in Python’s documentation of pass.
+PROMPT in the function definition, will make the function pass as argument what the function-call uses as prompt.
 """
 
 
