@@ -1,7 +1,7 @@
 # https://cs50.harvard.edu/python/2022/shorts/debugging/
 # https://www.youtube.com/watch?v=E2P512uXW80
 
-
+# Code with a mistake (first element of the pyramid, aka top brick, is an empty string)...
 
 def main():
   height = int(input("Height: "))
@@ -16,6 +16,21 @@ def pyramid(n):
 if __name__ == "__main__":
   main()
 
+# Solution - the index 0 would make an empty string when (0 * #) = "" zero times hashtag is an empty string, only the print sep="\n" will work, creating an empty string for first line and an "enter" newline reaction
+
+
+def main():
+  height = int(input("Height: "))
+  pyramid(height)
+  
+  
+def pyramid(n):
+  for i in range(n):
+    print("#" * (i + 1))
+    
+    
+if __name__ == "__main__":
+  main()
 
 
 """
