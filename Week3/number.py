@@ -168,7 +168,7 @@ def get_int(prompt):
             pass
 
 
-main()
+main() # teste
 
 """ 
 ABOUT THE PASS AND PROMPT
