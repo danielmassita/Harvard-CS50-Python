@@ -51,3 +51,23 @@ When the user types something different of a number, hits enter, or put 'cat' in
 Without an assignment to X of an integer, X is not defined, creating another problem of NameError. 
 """
 
+try:
+    x = int(input("What's x?"))
+except ValueError: # Here we catch the error and terminate the program.
+    print("x is not an integer")
+else: # If we try x and there are no problems caught before (like 'cat'), then we end with an else case printing the value of x. 
+    print(f"x is {x}")
+
+# What if the user types anything wrong, the code simple terminates? No good idea, let's use an infinity loop to "gently" remember the user what we want (without being explicit).
+
+# WHILE TRUE
+
+while True:
+    try:
+        x = int(input("What's x?"))
+    except ValueError:
+        print("x is not an integer")
+    else:
+        break
+
+print(f"x is {x}")
