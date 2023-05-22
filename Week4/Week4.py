@@ -5,9 +5,7 @@
 
 # https://cs50.harvard.edu/python/2022/notes/4/
 
-"""
-Lecture 4
-
+"""Lecture 4
 Libraries
 Random
 Statistics
@@ -21,6 +19,12 @@ Summing Up
 
 
 
+"""Libraries
+Generally, libraries are bits of code written by you or others can you can use in your program.
+Python allows you to share functions or features with others as “modules”.
+If you copy and paste code from an old project, chances are you can create such a module or library that you could bring into your new project.
 """
+
+
 
 """
