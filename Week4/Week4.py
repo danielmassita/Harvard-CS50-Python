@@ -223,3 +223,46 @@ Notice how we are taking the result of response.json() and storing it in o (as i
 You can learn more about requests through the library’s documentation.
 You can learn more about JSON in Python’s documentation of JSON.
 """
+
+
+
+"""
+Making Your Own Libraries
+You have the ability as a Python programmer to create your own library!
+Imagine situations where you may want to re-use bits of code time and time again or even share them with others!
+We have been writing lots of code to say “hello” so far in this course. Let’s create a package to allow us to say “hello” and “goodbye”. In your terminal window, type code sayings.py. In the text editor, code as follows:
+
+def hello(name):
+    print(f"hello, {name}")
+
+
+def goodbye(name):
+    print(f"goodbye, {name}")
+Notice that this code in and of itself does not do anything for the user. However, if a programmer were to import this package into their own program, the abilities created by the functions above could be implemented in their code.
+
+Let’s see how we could implement code utilizing this package that we created. In the terminal window, type code say.py. In this new file in your text editor, type the following:
+
+import sys
+
+from saying import goodbye
+
+if len(sys.argv) == 2:
+    goodbye(sys.argv[1])
+Notice that this code imports the abilities of goodbye from the sayings package. If the user inputed at least two arguments at the command line, it will say “goodbye” along with the string inputed at the command line.
+"""
+
+
+
+"""
+Summing Up
+Libraries extend the abilities of Python. Some libraries are included by default with Python and simply need to be imported. Others are third-party packages that need to be installed using pip. You can make your own packages for use by yourself or others! In this lecture, you learned about…
+
+Libraries
+Random
+Statistics
+Command-Line Arguments
+Slice
+Packages
+APIs
+Making Your Own Libraries
+"""
