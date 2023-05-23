@@ -71,3 +71,9 @@ We now have these three ways above to generate random information.
 
 You can learn more in Python’s documentation of random.
 """
+
+
+
+"""
+
+"""
