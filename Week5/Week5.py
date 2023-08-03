@@ -6,3 +6,7 @@
 # https://cs50.harvard.edu/python/2022/notes/5/
 
 # RECOMEÇANDO! 2023-08-03
+
+```python
+print("Hello, world!")
+```
