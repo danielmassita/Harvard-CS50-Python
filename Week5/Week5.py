@@ -8,3 +8,5 @@
 # RECOMEÇANDO! 2023-08-03
 
 print("Hello, world!")
+print("Hello, world!")
+print("Hello, world!")
