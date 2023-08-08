@@ -7,10 +7,6 @@
 
 # RECOMEÇANDO! 2023-08-03
 
-print("Hello, world!")
-print("Hello, world!")
-print("Hello, world!")
-
 """
 Lecture 5 - Unit Tests
   assert
@@ -84,8 +80,8 @@ def test_square():
 if __name__ == "__main__":
     main()
 """
-Notice that we are definitively asserting what square(2) and square(3) should equal. Our code is reduced from four test lines down to two.
-We can purposely break our calculator code by modifying it as follows:
+- Notice that we are definitively asserting what square(2) and square(3) should equal. Our code is reduced from four test lines down to two.
+- We can purposely break our calculator code by modifying it as follows:
 """
 def main():
     x = int(input("What's x? "))
@@ -99,7 +95,46 @@ def square(n):
 if __name__ == "__main__":
     main()
 """
-Notice that we have changed the * operator to a + in the square function.
-Now running python test_square.py in the console window, you will notice that an AssertionError is raised by the compiler. Essentially, this is the compiler telling us that one of our conditions was not met.
-One of the challenges that we are now facing is that our code could become even more burdensome if we wanted to provide more descriptive error output to our users. Plausibly, we could code as follows:
+- Notice that we have changed the * operator to a + in the square function.
+- Now running python test_square.py in the console window, you will notice that an AssertionError is raised by the compiler. Essentially, this is the compiler telling us that one of our conditions was not met.
+- One of the challenges that we are now facing is that our code could become even more burdensome if we wanted to provide more descriptive error output to our users. Plausibly, we could code as follows:
+"""
+from calculator import square
+
+
+def main():
+    test_square()
+
+
+def test_square():
+    try:
+        assert square(2) == 4
+    except AssertionError:
+        print("2 squared is not 4")
+    try:
+        assert square(3) == 9
+    except AssertionError:
+        print("3 squared is not 9")
+    try:
+        assert square(-2) == 4
+    except AssertionError:
+        print("-2 squared is not 4")
+    try:
+        assert square(-3) == 9
+    except AssertionError:
+        print("-3 squared is not 9")
+    try:
+        assert square(0) == 0
+    except AssertionError:
+        print("0 squared is not 0")
+
+
+if __name__ == "__main__":
+    main()
+"""
+- Notice that running this code will produce multiple errors. However, it’s not producing all the errors above. This is a good illustration that it’s worth testing multiple cases such that you might catch situations where there are coding mistakes.
+
+- The above code illustrates a major challenge: How could we make it easier to test your code without dozens of lines of code like the above?
+- You can learn more in Python’s documentation of assert.
+- https://docs.python.org/3/reference/simple_stmts.html#assert
 """
