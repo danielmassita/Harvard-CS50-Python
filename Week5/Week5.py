@@ -132,9 +132,106 @@ def test_square():
 if __name__ == "__main__":
     main()
 """
+
+  ```
+  Harvard-CS50p/Week5/ $ python test_calculator.py
+  3 squared was not 9
+  -2 squared was not 4
+  -3 squared was not 9
+  Harvard-CS50p/Week5/ $ 
+  ```
+
 - Notice that running this code will produce multiple errors. However, it’s not producing all the errors above. This is a good illustration that it’s worth testing multiple cases such that you might catch situations where there are coding mistakes.
 
 - The above code illustrates a major challenge: How could we make it easier to test your code without dozens of lines of code like the above?
 - You can learn more in Python’s documentation of assert.
 - https://docs.python.org/3/reference/simple_stmts.html#assert
+
+PYTEST
+
+- pytest is a third-party library that allows you to unit test your program. That is, you can test your functions within your program.
+- To utilize pytest please type pip install pytest into your console window.
+- Before applying pytest to our own program, modify your test_calculator function as follows:
 """
+from calculator import square
+
+
+def test_assert():
+    assert square(2) == 4
+    assert square(3) == 9
+    assert square(-2) == 4
+    assert square(-3) == 9
+    assert square(0) == 0
+
+    """
+    rootdir: /workspaces/111195175/Harvard-CS50p/Week5
+    collected 1 item                                                                                                         
+    
+    test_calculator.py F                                                                                               [100%]
+    
+    ======================================================== FAILURES ========================================================
+    ______________________________________________________ test_square _______________________________________________________
+    
+        def test_square():
+            assert square(2) == 4
+    >       assert square(3) == 9
+    E       assert 6 == 9
+    E        +  where 6 = square(3)                   <<<<< MAYBE THE ERROR SHOULD BE SOMEWHERE OVER HERE...
+    
+    test_calculator.py:46: AssertionError
+    ================================================ short test summary info =================================================
+    FAILED test_calculator.py::test_square - assert 6 == 9
+    =================================================== 1 failed in 0.15s ====================================================
+    Harvard-CS50p/Week5/ $ pytest test_calculator.py
+    """
+"""
+- Notice how the above code asserts all the conditions that we want to test.
+- pytest allows us to run our program directly through it, such that we can more easily view the results of our test conditions.
+- In the terminal window, type pytest test_calculator.py. You’ll immediately notice that output will be provided. Notice the red F near the top of the output, indicating that something in your code failed. Further, notice that the red E provides some hints about the errors in your calculator.py program. Based upon the output, you can imagine a scenario where 3 * 3 has outputted 6 instead of 9. Based on the results of this test, we can go correct our calculator.py code as follows:
+"""
+def main():
+    x = int(input("What's x? "))
+    print("x squared is", square(x))
+
+
+def square(n):
+    return n * n
+
+
+if __name__ == "__main__":
+    main()
+"""
+- Notice that we have changed the + operator to a * in the square function, returning it to a working state.
+- Re-running pytest test_calculator.py, notice how no errors are produced. Congratulations!
+- At the moment, it is not ideal that pytest will stop running after the first failed test. Again, let’s return our calculator.py code back to its broken state:
+"""
+def main():
+    x = int(input("What's x? "))
+    print("x squared is", square(x))
+
+
+def square(n):
+    return n + n
+
+
+if __name__ == "__main__":
+    main()
+"""
+- Notice that we have changed the * operator to a + in the square function, returning it to a broken state.
+- To improve our test code, let’s modify test_calculator.py to divide the code into different groups of tests:
+"""
+from calculator import square
+
+
+def test_positive():
+    assert square(2) == 4
+    assert square(3) == 9
+
+
+def test_negative():
+    assert square(-2) == 4
+    assert square(-3) == 9
+
+
+def test_zero():
+    assert square(0) == 0
