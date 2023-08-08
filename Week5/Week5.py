@@ -235,3 +235,80 @@ def test_negative():
 
 def test_zero():
     assert square(0) == 0
+
+"""
+Harvard-CS50p/Week5/ $ pytest test_calculator.py
+================================================== test session starts ===================================================
+platform linux -- Python 3.11.4, pytest-7.4.0, pluggy-1.2.0
+rootdir: /workspaces/111195175/Harvard-CS50p/Week5
+collected 3 items                                                                                                        
+
+test_calculator.py FF.                                                                                             [100%]
+
+======================================================== FAILURES ========================================================
+_____________________________________________________ test_positive ______________________________________________________
+
+    def test_positive():
+        assert square(2) == 4
+>       assert square(3) == 9
+E       assert 6 == 9
+E        +  where 6 = square(3)
+
+test_calculator.py:57: AssertionError
+_____________________________________________________ test_negative ______________________________________________________
+
+    def test_negative():
+>       assert square(-2) == 4
+E       assert -4 == 4
+E        +  where -4 = square(-2)
+
+test_calculator.py:60: AssertionError
+================================================ short test summary info =================================================
+FAILED test_calculator.py::test_positive - assert 6 == 9
+FAILED test_calculator.py::test_negative - assert -4 == 4
+============================================== 2 failed, 1 passed in 0.07s ===============================================
+Harvard-CS50p/Week5/ $ 
+"""
+
+"""
+- Notice that we have divided the same five tests into three different functions. Testing frameworks like pytest will run each function, even if there was a failure in one of them. Re-running pytest test_calculator.py, you will notice that many more errors are being displayed. More error output allows you to further explore what might be producing the problems within your code.
+- Having improved our test code, return your calculator.py code to fully working order:
+"""
+def main():
+    x = int(input("What's x? "))
+    print("x squared is", square(x))
+
+
+def square(n):
+    return n * n
+
+
+if __name__ == "__main__":
+    main()
+"""
+- Notice that we have changed the + operator to a * in the square function, returning it to a working state.
+- Re-running pytest test_calculator.py, you will notice that no errors are found.
+- In summary, it’s up to you as a coder to define as many test conditions as you see fit!
+- You can learn more in Pytest’s documentation of pytest.
+- https://docs.pytest.org/en/7.1.x/getting-started.html
+
+
+TESTING STRINGS
+
+- Going back in time, consider the following code hello.py:
+"""
+def main():
+    name = input("What's your name? ")
+    hello(name)
+
+
+def hello(to="world"):
+    print("hello,", to)
+
+
+if __name__ == "__main__":
+    main()
+"""
+- Notice that we may wish to test the result of the hello function.
+- Consider the following code for test_hello.py:
+"""
