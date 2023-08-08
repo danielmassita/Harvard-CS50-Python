@@ -311,6 +311,43 @@ if __name__ == "__main__":
 TESTING STRINGS
 
 - Going back in time, consider the following code hello.py:
+
+- Let's take out the INT() function so we accidentaly mismatch the Data Type:
+    ```
+    Harvard-CS50p/Week5/ $ python calculator.py
+    What's x? cat
+    Traceback (most recent call last):
+      File "/workspaces/111195175/Harvard-CS50p/Week5/calculator.py", line 14, in <module>
+        main()
+      File "/workspaces/111195175/Harvard-CS50p/Week5/calculator.py", line 4, in main
+        print("x squared is", square(x))
+                              ^^^^^^^^^
+      File "/workspaces/111195175/Harvard-CS50p/Week5/calculator.py", line 8, in square
+        return n * n
+               ~~^~~
+    TypeError: can't multiply sequence by non-int of type 'str'
+    ```
+"""
+import pytest
+from calculator import square
+
+def test_positive():
+    assert square(2) == 4
+    assert square(3) == 9
+
+def test_negative():
+    assert square(-2) == 4
+    assert square(-3) == 9
+
+def test_zero():
+    assert square(0) == 0
+
+def test_str():
+    # NOT ASSERT for string...
+    with pytest.raises(TypeError):
+        square("cat")
+""" 
+- Now, with the Pytest library, we use the command with pytest.raises(TypeError):  square("cat") and we avoid the ugly TypeError in CLI and we catch the error like an exception...
 """
 def main():
     name = input("What's your name? ")
@@ -326,4 +363,74 @@ if __name__ == "__main__":
 """
 - Notice that we may wish to test the result of the hello function.
 - Consider the following code for test_hello.py:
+"""
+from hello import hello
+
+
+def test_hello():
+    assert hello("David") == "hello, David"
+    assert hello() == "hello, world"
+"""
+- Looking at this code, do you think that this approach to testing will work well? Why might this test not work well? Notice that the hello function in hello.py prints something: That is, it does not return a value!
+- We can change our hello function within hello.py as follows:
+"""
+def main():
+    name = input("What's your name? ")
+    print(hello(name))
+
+
+def hello(to="world"):
+    return f"hello, {to}"
+
+
+if __name__ == "__main__":
+    main()
+"""
+- Notice that we changed our hello function to return a string. This effectively means that we can now use pytest to test the hello function.
+- Running pytest test_hello.py, our code will pass all tests!
+- As with our previous test case in this lesson, we can break out our tests separately:
+"""
+from hello import hello
+
+
+def test_default():
+    assert hello() == "hello, world"
+
+
+def test_argument():
+    assert hello("David") == "hello, David"
+"""
+- Notice that the above code separates our test into multiple functions such that they will all run, even if an error is produced.
+
+
+ORGANIZING TESTS INTO FOLDERS
+
+- Unit testing code using multiple tests is so common that you have the ability to run a whole folder of tests with a single command.
+- First, in the terminal window, execute mkdir test to create a folder called test.
+- Then, to create a test within that folder, type in the terminal window code test/test_hello.py. Notice that test/ instructs the terminal to create test_hello.py in the folder called test.
+- In the text editor window, modify the file to include the following code:
+"""
+from hello import hello
+  
+  
+def test_default():
+    assert hello() == "hello, world"
+  
+  
+def test_argument():
+    assert hello("David") == "hello, David"
+"""
+- Notice that we are creating a test just as we did before.
+- pytest will not allow us to run tests as a folder simply with this file (or a whole set of files) alone without a special __init__ file. In your terminal window, create this file by typing code test/__init__.py. Note the test/ as before, as well as the double underscores on either side of init. Even leaving this __init__.py file empty, pytest is informed that the whole folder containing __init__.py has tests that can be run.
+- Now, typing pytest test in the terminal, you can run the entire test folder of code.
+- You can learn more in Pytest’s documentation of import mechanisms.
+- https://docs.pytest.org/en/7.1.x/explanation/pythonpath.html?highlight=folder#pytest-import-mechanisms-and-sys-path-pythonpath
+
+
+Summing Up
+
+- Testing your code is a natural part of the programming process. Unit tests allow you to test specific aspects of your code. You can create your own programs that test your code. Alternatively, you can utilize frameworks like pytest to run your unit tests for you. In this lecture, you learned about…
+- Unit tests
+- assert
+- pytest
 """
