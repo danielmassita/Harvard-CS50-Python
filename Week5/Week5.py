@@ -286,6 +286,21 @@ def square(n):
 if __name__ == "__main__":
     main()
 """
+
+    ```
+    Harvard-CS50p/Week5/ $ pytest test_calculator.py
+    ================================================== test session starts ===================================================
+    platform linux -- Python 3.11.4, pytest-7.4.0, pluggy-1.2.0
+    rootdir: /workspaces/111195175/Harvard-CS50p/Week5
+    collected 3 items                                                                                                        
+    
+    test_calculator.py ...                                                                                             [100%]
+    
+    =================================================== 3 passed in 0.01s ====================================================
+    Harvard-CS50p/Week5/ $ 
+    ```
+
+
 - Notice that we have changed the + operator to a * in the square function, returning it to a working state.
 - Re-running pytest test_calculator.py, you will notice that no errors are found.
 - In summary, it’s up to you as a coder to define as many test conditions as you see fit!
