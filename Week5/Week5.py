@@ -62,4 +62,41 @@ if __name__ == "__main__":
 Notice that we are importing the square function from square.py on the first line of code. By convention, we are creating a function called test_square. Inside that function, we define some conditions to test.
 In the console window, type python test_calculator.py. You’ll notice that nothing is being outputted. It could be that everything is running fine! Alternatively, it could be that our test function did not discover one of the “corner cases” that could produce an error.
 Right now, our code tests two conditions. If we wanted to test many more conditions, our test code could easily become bloated. How could we expand our test capabilities without expanding our test code?
+
+assert
+Python’s assert command allows us to tell the compiler that something, some assertion, is true. We can apply this to our test code as follows:
+"""
+from calculator import square
+
+
+def main():
+    test_square()
+
+
+def test_square():
+    assert square(2) == 4
+    assert square(3) == 9
+
+
+if __name__ == "__main__":
+    main()
+"""
+Notice that we are definitively asserting what square(2) and square(3) should equal. Our code is reduced from four test lines down to two.
+We can purposely break our calculator code by modifying it as follows:
+"""
+def main():
+    x = int(input("What's x? "))
+    print("x squared is", square(x))
+
+
+def square(n):
+    return n + n
+
+
+if __name__ == "__main__":
+    main()
+"""
+Notice that we have changed the * operator to a + in the square function.
+Now running python test_square.py in the console window, you will notice that an AssertionError is raised by the compiler. Essentially, this is the compiler telling us that one of our conditions was not met.
+One of the challenges that we are now facing is that our code could become even more burdensome if we wanted to provide more descriptive error output to our users. Plausibly, we could code as follows:
 """
