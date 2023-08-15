@@ -94,12 +94,14 @@ file.close()
 # This code is working quite well. However, there are ways to improve this program. It so happens that it’s quite easy to forget to close the file.
 
 # You can learn more in Python’s documentation of open.
+# https://docs.python.org/3/library/functions.html#open
 
 
 
 
 
-# with
+# WITH
+
 # The keyword with allows you to automate the closing of a file.
 # Modify your code as follows:
 
@@ -154,3 +156,88 @@ for name in sorted(names):
 
 # CSV
 
+# CSV stands for “comma separated values”.
+# In your terminal window, type code students.csv. Ensure your new CSV file looks like the following:
+
+Hermoine,Gryffindor
+Harry,Gryffindor
+Ron,Gryffindor
+Draco,Slytherin
+
+# Let’s create a new program by typing code students.py and code as follows:
+
+with open("students.csv") as file:
+    for line in file:
+        row = line.rstrip().split(",")
+        print(f"{row[0]} is in {row[1]}")
+# Notice that rstrip removes the end of each line in our CSV file. split tells the compiler where to find the end of each of our values in our CSV file. row[0] is the first element in each line of our CSV file. row[1] is the second element in each line in our CSV file.
+
+# The above code is effective at dividing each line or “record” of our CSV file. However, it’s a bit cryptic to look at if you are unfamiliar with this type of syntax. Python has built-in ability that could further simplify this code. Modify your code as follows:
+
+with open("students.csv") as file:
+    for line in file:
+        name, house = line.rstrip().split(",")
+        print(f"{name} is in {house}")
+
+# Notice that the split function actually returns two values: The one before the comma and the one after the comma. Accordingly, we can rely upon that functionality to assign two variables at once instead of one!
+
+# Imagine that we would again like to provide this list as sorted output? You can modify your code as follows:
+
+students = []
+
+with open("students.csv") as file:
+    for line in file:
+        name, house = line.rstrip().split(",")
+        students.append(f"{name} is in {house}")
+
+for student in sorted(students):
+    print(student)
+# Notice that we create a list called students. We append each string to this list. Then, we output a sorted version of our list.
+
+# Recall that Python allows for dictionaries where a key can be associated with a value. This code could be further improved
+
+students = []
+
+with open("students.csv") as file:
+    for line in file:
+        name, house = line.rstrip().split(",")
+        student = {}
+        student["name"] = name
+        student["house"] = house
+        students.append(student)
+
+for student in students:
+    print(f"{student['name']} is in {student['house']}")
+# Notice that we create an empty dictionary called student. We add the values for each student, including their name and house into the student dictionary. Then, we append that student to the list called students.
+
+# We can improve our code to illustrate this as follows:
+
+students = []
+
+with open("students.csv") as file:
+    for line in file:
+        name, house = line.rstrip().split(",")
+        student = {"name": name, "house": house}
+        students.append(student)
+
+for student in students:
+    print(f"{student['name']} is in {student['house']}")
+# Notice that this produces the desired outcome, minus the sorting of students.
+
+# Unfortunately, we cannot sort the students as we had prior because each student is now a dictionary inside of a list. It would be helpful if Python could sort the students list of student dictionaries that sorts this list of dictionaries by the student’s name.
+# To implement this in our code, make the following changes:
+
+students = []
+
+with open("students.csv") as file:
+    for line in file:
+        name, house = line.rstrip().split(",")
+        students.append({"name": name, "house": house})
+
+
+def get_name(student):
+    return student["name"]
+
+
+for student in sorted(students, key=get_name):
+    print(f"{student['name']} is in {student['house']}")
