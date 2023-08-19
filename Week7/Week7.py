@@ -18,24 +18,30 @@ Lecture 7
 # REGULAR EXPRESSIONS
 
 # Regular expressions or “regexes” will enable us to examine patterns within our code. For example, we might want to validate that an email address is formatted correctly. Regular expressions will enable us to examine expressions in this fashion.
-
 # To begin, type code validate.py in the terminal window. Then, code as follows in the text editor:
-
-email = input("What's your email? ").strip()
-
-if "@" in email:
-    print("Valid")
-else:
-    print("Invalid")
+    
+    email = input("What's your email? ").strip()  
+    if "@" in email:
+        print("Valid")
+    else:
+        print("Invalid")
 
 # Notice that strip will remove whitespace at the beginning or end of the input. Running this program, you will see that as long as an @ symbol is inputted, the program will regard the input as valid.
-
 # You can imagine, however, that one could input @@ alone and the input could be regarded as valid. We could regard an email address as having at least one @ and a . somewhere within it. Modify your code as follows:
 
-email = input("What's your email? ").strip()
+    email = input("What's your email? ").strip()
+    if "@" in email and "." in email:
+        print("Valid")
+    else:
+        print("Invalid")
 
-if "@" in email and "." in email:
-    print("Valid")
-else:
-    print("Invalid")
+# Notice that while this works as expected, our user could be adversarial, typing simply @. would result in the program returning valid.
+# We can improve the logic of our program as follows:
+
+    email = input("What's your email? ").strip()
+    username, domain = email.split("@")
+    if username and "." in domain:
+        print("Valid")
+    else:
+        print("Invalid")
 
