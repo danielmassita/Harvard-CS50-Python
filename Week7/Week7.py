@@ -69,6 +69,7 @@ Lecture 7
 
 # Notice this does not increase the functionality of our program at all. In fact, it is somewhat a step back.
 # We can further our program’s functionality. However, we need to advance our vocabulary around validation. It turns out that in the world of regular expressions there are certain symbols that allow us to identify patterns. At this point, we have only been checking for specific pieces of text like @. It so happens that many special symbols can be passed to the compiler for the purpose of engaging in validation. A non-exhaustive list of those patterns is as follows:
+
 """
     .   any character except a new line
     *   0 or more repetitions
@@ -77,4 +78,30 @@ Lecture 7
     {m} m repetitions
     {m,n} m-n repetitions
 """
+
+# Implementing this inside of our code, modify yours as follows:
+    
+    import re
+    email = input("What's your email? ").strip()
+    if re.search(".+@.+", email):
+        print("Valid")
+    else:
+        print("Invalid")
+
+# Notice that we don’t care what the username or domain is. What we care about is the pattern. .+ is used to determine if anything is to the left of the email address and if anything is to the right of the email address. Running your code, typing in malan@, you’ll notice that the input is regarded as invalid as we would hope.
+# Had we used a regular expression .*@.* in our code above, you can visualize this as follows:
+    # https://cs50.harvard.edu/python/2022/notes/7/cs50pWeek7Slide8.png
+# Notice the depiction of the state machine of our regular expression. On the left, the compiler begins evaluating the statement from left to right. Once we reach q1 or question 1, the compiler reads time and time again based on the expression handed to it. Then, the state is changed looking now at q2 or the second question being validated. Again, the arrow indicates how the expression will be evaluated time and time again based upon our programming. Then, as depicted by the double circle, the final state of state machine is reached.
+# Considering the regular expression we used in our code, .+@.+, you can visualize it as follows:
+    # https://cs50.harvard.edu/python/2022/notes/7/cs50pWeek7Slide10.png
+# Notice how q1 is any character provided by the user, including ‘q2’ as 1 or more repetitions of characters. This is followed by the ‘@’ symbol. Then, q3 looks for any character provided by the user, including q4 as 1 or more repetitions of characters.
+# The re and re.search functions and ones like them look for patterns.
+# Continuing our improvement of this code, we could improve our code as follows:
+    
+    import re
+    email = input("What's your email? ").strip()
+    if re.search(".+@.+.edu", email):
+        print("Valid")
+    else:
+        print("Invalid")
 
