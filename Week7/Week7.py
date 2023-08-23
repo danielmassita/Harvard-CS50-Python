@@ -105,3 +105,15 @@ Lecture 7
     else:
         print("Invalid")
 
+# Notice, however, that one could type in malan@harvard?edu and it could be considered valid. Why is this the case? You might recognize that in the language of validation, a . means any character!
+# We can modify our code as follows:
+
+    import re
+    email = input("What's your email? ").strip()
+    if re.search(".+@.+\.edu", email):
+        print("Valid")
+    else:
+        print("Invalid")
+    
+# Notice how we utilize the “escape character” or \ as a way of regarding the . as part of our string instead of our validation expression. Testing your code, you will notice that malan@harvard.edu is regarded as valid, where malan@harvard?edu is invalid.
+# Now that we’re using escape characters, it’s a good time to introduce “raw strings”. In Python, raw strings are strings that don’t format special characters—instead, each character is taken at face-value. Imagine \n, for example. We’ve seen in an earlier lecture how, in a regular string, these two characters become one: a special newline character. In a raw string, however, \n is treated not as \n, the special character, but as a single \ and a single n. Placing an r in front of a string tells the Python interpreter to treat the string as a raw string, similar to how placing an f in front of a string tells the Python interpreter to treat the string as a format string:
