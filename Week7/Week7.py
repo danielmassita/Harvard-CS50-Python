@@ -157,3 +157,6 @@ Lecture 7
     else:
         print("Invalid")
 
+# Notice that ^ means to match at the start of the string. All the way at the end of our expression, $ means to match at the end of the string. [^@]+ means any character except an @. Then, we have a literal @. [^@]+\.edu means any character except an @ followed by an expression ending in .edu. Typing in malan@@@harvard.edu is now regarded as invalid.
+# We can still improve this regular expression further. It turns out there are certain requirements for what an email address can be! Currently, our validation expression is far too accomodating. We might only want to allow for characters normally used in a sentence. We can modify our code as follows:
+
