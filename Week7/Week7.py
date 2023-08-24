@@ -117,3 +117,43 @@ Lecture 7
     
 # Notice how we utilize the “escape character” or \ as a way of regarding the . as part of our string instead of our validation expression. Testing your code, you will notice that malan@harvard.edu is regarded as valid, where malan@harvard?edu is invalid.
 # Now that we’re using escape characters, it’s a good time to introduce “raw strings”. In Python, raw strings are strings that don’t format special characters—instead, each character is taken at face-value. Imagine \n, for example. We’ve seen in an earlier lecture how, in a regular string, these two characters become one: a special newline character. In a raw string, however, \n is treated not as \n, the special character, but as a single \ and a single n. Placing an r in front of a string tells the Python interpreter to treat the string as a raw string, similar to how placing an f in front of a string tells the Python interpreter to treat the string as a format string:
+    
+    import re
+    email = input("What's your email? ").strip()
+    if re.search(r".+@.+\.edu", email):
+        print("Valid")
+    else:
+        print("Invalid")
+
+# Now we’ve ensured the Python interpreter won’t treat \. as a special character. Instead, simply as a \ followed by a .—which, in regular expression terms, means matching a literal “.”.
+# You can imagine still how our users could create problems for us! For example, you could type in a sentence such as My email address is malan@harvard.edu and this whole sentence would be considered valid. We can be even more precise in our coding.
+# It just so happens we have more special symbols at our disposal in validation:
+
+#    ^   matches the start of the string
+#    $   matches the end of the string or just before the newline at the end of the string
+
+# We can modify our code using our added vocabulary as follows:
+
+    import re
+    email = input("What's your email? ").strip()
+    if re.search(r"^.+@.+\.edu$", email):
+        print("Valid")
+    else:
+        print("Invalid")
+
+# Notice this has the effect of looking for this exact pattern matching to the start and end of the expression being validated. Typing in a sentence such as My email address is malan@harvard.edu now is regarded as invalid.
+# We propose we can do even better! Even though we are now looking for the username at the start of the string, the @ symbol, and the domain name at the end, we could type in as many @ symbols as we wish! malan@@@harvard.edu is considered valid!
+# We can add to our vocabulary as follows:
+
+#    []    set of characters
+#    [^]   complementing the set
+
+# Using these newfound abilities, we can modify our expression as follows:
+
+    import re
+    email = input("What's your email? ").strip()
+    if re.search(r"^[^@]+@[^@]+\.edu$", email):
+        print("Valid")
+    else:
+        print("Invalid")
+
