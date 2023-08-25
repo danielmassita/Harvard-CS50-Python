@@ -169,3 +169,38 @@ Lecture 7
 
 # Notice that [a-zA-Z0-9_] tells the validation that characters must be between a and z, between A and Z, between 0 and 9 and potentially include an _ symbol. Testing the input, you’ll find that many potential user mistakes can be indicated.
 # Thankfully, common patterns have been built into regular expressions by hard-working programmers. In this case, you can modify your code as follows:
+
+    import re
+    email = input("What's your email? ").strip()
+    if re.search(r"^\w+@\w.+\.edu$", email):
+        print("Valid")
+    else:
+        print("Invalid")
+
+# Notice that \w is the same as [a-zA-Z0-9_]. Thanks, hard-working programmers!
+# Here are some additional patterns we can add to our vocabulary:
+
+    #    \d    decimal digit
+    #    \D    not a decimal digit
+    #    \s    whitespace characters
+    #    \S    not a whitespace character
+    #    \w    word character, as well as numbers and the underscore
+    #    \W    not a word character
+
+# Now, we know that there are not simply .edu email addresses. We could modify our code as follows:
+
+import re
+email = input("What's your email? ").strip()
+if re.search(r"^\w+@\w.+\.(com|edu|gov|net|org)$", email):
+    print("Valid")
+else:
+    print("Invalid")
+
+# Notice that the | has the impact of an or in our expression.
+# Adding even more symbols to our vocabulary, here are some more to consider:
+
+#        A|B     either A or B
+#        (...)   a group
+#        (?:...) non-capturing version
+
+# 
