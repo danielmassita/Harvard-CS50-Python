@@ -203,4 +203,22 @@ else:
 #        (...)   a group
 #        (?:...) non-capturing version
 
-# 
+
+
+
+
+# CASE SENSITIVITY
+
+# To illustrate how you might address issues around case sensitivity, where there is a difference between EDU and edu and the like, let’s rewind our code to the following:
+
+    import re
+    email = input("What's your email? ").strip()
+    if re.search(r"^\w+@\w.+\.edu$", email):
+        print("Valid")
+    else:
+        print("Invalid")
+        
+# Notice how we have removed the | statements provided previously.
+# Recall that within the re.search function, there is a parameter for flags.
+# Some built-in flag variables are:
+
