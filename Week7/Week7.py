@@ -254,4 +254,19 @@ else:
     else:
         print("Invalid")
 
-#
+# Notice how the (\w+\.)? communicates to the compiler that this new expression can be there once or not at all. Hence, both malan@cs50.harvard.edu and malan@harvard.edu are considered valid.
+# Interestingly enough, the edits we have done so far to our code do not fully encompass all the checking that could be done to ensure a valid email address. Indeed, here is the full expression that one would have to type to ensure that a valid email is inputted:
+
+#    ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
+
+# There are other functions within the re library you might find useful. re.match and re.fullmatch are ones you might find exceedingly useful.
+# You can learn more in Python’s documentation of re.
+# https://docs.python.org/3/library/re.html
+
+
+
+
+
+# CLEANING UP USER INPUT
+
+# 
