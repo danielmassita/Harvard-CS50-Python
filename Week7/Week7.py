@@ -222,3 +222,36 @@ else:
 # Recall that within the re.search function, there is a parameter for flags.
 # Some built-in flag variables are:
 
+#    re.IGNORECASE
+#    re.MULTILINE
+#    re.DOTALL
+
+# Consider how you might use these in your code.
+# Therefore, we can change our code as follows.
+    
+    import re
+    email = input("What's your email? ").strip()
+    if re.search(r"^\w+@\w.+\.edu$", email, re.IGNORECASE):
+        print("Valid")
+    else:
+        print("Invalid")
+        
+# Notice how we added a third parameter re.IGNORECASE. Running this program with MALAN@HARVARD.EDU, the input is now considered valid.
+# Consider the following email address malan@cs50.harvard.edu. Using our code above, this would be considered invalid. Why might that be?
+# Since there is an additional ., the program considers this invalid.
+# It turns out that we can, looking at our vocabulary from before, we can group together ideas.
+
+#    A|B     either A or B
+#    (...)   a group
+#    (?:...) non-caputuring version
+
+# We can modify our code as follows:
+
+    import re
+    email = input("What's your email? ").strip()
+    if re.search(r"^\w+@(\w+\.)?\w+\.edu$", email, re.IGNORECASE):
+        print("Valid")
+    else:
+        print("Invalid")
+
+#
