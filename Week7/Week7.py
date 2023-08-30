@@ -269,4 +269,20 @@ else:
 
 # CLEANING UP USER INPUT
 
+# You should never expect your users to always follow your hopes for clean input. Indeed, users will often violate your intentions as a programmer.
+# There are ways to clean up your data.
+# In the terminal window, type code format.py. Then, in the text-editor, code as follows:
+
+name = input("What's your name? ").strip()
+print(f"hello, {name}")
+
+# Notice that we have created, essentially, a “hello world” program. Running this program and typing in David, it works well! However, typing in Malan, David notice how the program does not function as intended. How could we modify our program to clean up this input?
+# Modify your code as follows.
+
+name = input("What's your name? ").strip()
+if "," in name:
+    last, first = name.split(", ")
+    name = f"{first} {last}"
+print(f"hello, {name}")
+
 # 
