@@ -299,15 +299,14 @@ else:
 # Notice that re.search can return a set of matches that are extracted from the user’s input. If matches are returned by re.search. Running this program, typing in David Malan notice how the if condition is not run and the name is returned. If you run the program by typing Malan, David, the name is also returned properly.
 # It just so happens that we can request specific groups back using matches.group. We can modify our code as follows:
 
-import re
-
-name = input("What's your name? ").strip()
-matches = re.search(r"^(.+), (.+)$", name)
-if matches:
-    last = matches.group(1)
-    first = matches.group(2)
-    name = f"{first} {last}"
-print(f"hello, {name}")
+    import re
+    name = input("What's your name? ").strip()
+    matches = re.search(r"^(.+), (.+)$", name)
+    if matches:
+        last = matches.group(1)
+        first = matches.group(2)
+        name = f"{first} {last}"
+    print(f"hello, {name}")
 
 # Notice how, in this implementation, group is not plural (there is no s).
 # Our code can be further tightened as follows:
