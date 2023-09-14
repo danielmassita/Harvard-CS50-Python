@@ -19,3 +19,22 @@ Lecture 8
     Operator Overloading
     Summing Up
 """
+
+
+
+
+
+"""
+Object-Oriented Programming
+
+- There are different paradigms of programming. As you learn other languages, you will start recognizing patterns like these.
+- Up until this point, you have worked procedurally step-by-step.
+- Object-oriented programming (OOP) is a compelling solution to programming-related problems.
+- To begin, type code student.py in the terminal window and code as follows:
+"""
+    name = input("Name: ")
+    house = input("House: ")
+    print(f"{name} from {house}")
+"""
+- 
+"""
