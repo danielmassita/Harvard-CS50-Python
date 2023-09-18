@@ -70,6 +70,28 @@ Object-Oriented Programming
     if __name__ == "__main__":
         main()
 """
+- Notice how get_student returns name, house.
+- Packing that tuple, such that we are able to return both items to a variable called student, we can modify our code as follows.
+"""
+    def main():
+        student = get_student()
+        print(f"{student[0]} from {student[1]}")
+    
+    
+    def get_student():
+        name = input("Name: ")
+        house = input("House: ")
+        return (name, house)
+    
+    
+    if __name__ == "__main__":
+        main()
+"""
+- Notice that (name, house) explicitly tells anyone reading our code that we are returning two values within one. Further, notice how we can index into tuples using student[0] or student[1].
+- tuples are immutable, meaning we cannot change those values. Immutability is a way by which we can program defensively.
+"""
+
+"""
 
 # https://youtu.be/e4fwY9ZsxPw?si=D-XQhsI-7IrBdRCf&t=7401
 
