@@ -56,7 +56,20 @@ Object-Oriented Programming
 - Notice how get_name and get_house abstract away some of the needs of our main function. Further, notice how the final lines of the code above tell the compiler to run the main function.
 - We can further simplify our program by storing the student as a tuple. A tuple is a sequences of values. Unlike a list, a tuple can’t be modified. In spirit, we are returning two values.
 """
-
+    def main():
+        name, house = get_student()
+        print(f"{name} from {house}")
+    
+    
+    def get_student():
+        name = input("Name: ")
+        house = input("House: ")
+        return name, house
+    
+    
+    if __name__ == "__main__":
+        main()
+"""
 
 # https://youtu.be/e4fwY9ZsxPw?si=D-XQhsI-7IrBdRCf&t=7401
 
