@@ -245,3 +245,9 @@ def get_student():
 if __name__ == "__main__":
     main()
 
+"""
+- There are a number of not just attributes or instance variables that you can put inside, but also METHODS.
+- Classes come with certain methods, or functions inside of them, that you can define, and they just behave in a special way, by nature of how Python works.
+- These functions allow you to determine behavior in a standard way.
+- They are special methods in that sense.
+"""
