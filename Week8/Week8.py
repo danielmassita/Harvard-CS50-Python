@@ -103,23 +103,23 @@ if __name__ == "__main__":
 - If we wanted to provide our fellow programmers flexibility, we could utilize a list as follows.
 """
 
-# def main():
-#     student = get_student()
+def main():
+    student = get_student()
 
-#     if student[0] == "Padma":
-#         student[1] = "Ravenclaw" # Tuples are immutable and Lists are mutables!
+    if student[0] == "Padma":
+        student[1] = "Ravenclaw" # Tuples are immutable and Lists are mutables!
 
-#     print(f"{student[0]} from {student[1]}")
-
-
-# def get_student():
-#     name = input("Name: ")
-#     house = input("House: ")
-#     return [name, house] # returns a List!
+    print(f"{student[0]} from {student[1]}")
 
 
-# if __name__ == "__main__":
-#     main()
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    return [name, house] # returns a List!
+
+
+if __name__ == "__main__":
+    main()
 
 """
 - Note the lists are mutable. That is, the order of house and name can be switched by a programmer. You might decide to utilize this in some cases where you want to provide more flexibility at the cost of the security of your code. After all, if the order of those values is changeable, programmers that work with you could make mistakes down the road.
