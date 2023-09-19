@@ -80,23 +80,23 @@ if __name__ == "__main__":
 - tuples are immutable, meaning we cannot change those values. Immutability is a way by which we can program defensively.
 """
 
-# def main():
-#     student = get_student()
+def main():
+    student = get_student()
 
-#     if student[0] == "Padma": # this index student[0] reads 'Padma' from name
-#         student[1] = "Ravenclaw" # and converts the index student[1] into 'Ravenclaw' even the user typed something else
+    if student[0] == "Padma": # this index student[0] reads 'Padma' from name
+        student[1] = "Ravenclaw" # and converts the index student[1] into 'Ravenclaw' even the user typed something else
 
-#     print(f"{student[0]} from {student[1]}")
-
-
-# def get_student():
-#     name = input("Name: ")
-#     house = input("House: ")
-#     return (name, house) # Will raise an TypeError for Tuples are immutables
+    print(f"{student[0]} from {student[1]}")
 
 
-# if __name__ == "__main__":
-#     main()
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    return (name, house) # Will raise an TypeError for Tuples are immutables
+
+
+if __name__ == "__main__":
+    main()
 
 """
 - Notice that this code produces an error. Since tuples are immutable, we’re not able to reassign the value of student[1].
