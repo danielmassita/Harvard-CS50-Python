@@ -61,19 +61,19 @@ if __name__ == "__main__":
 - Packing that tuple, such that we are able to return both items to a variable called student, we can modify our code as follows.
 """
 
-# def main():
-#     student = get_student() # single variable receiving a tuple
-# #    print(f"{name} from {house}") # will raise a NameError (not assigned variable)
-#     print(f"{student[0]} from {student[1]}") # we use index[0] for name and index[1] for house
+def main():
+    student = get_student() # single variable receiving a tuple
+#    print(f"{name} from {house}") # will raise a NameError (not assigned variable)
+    print(f"{student[0]} from {student[1]}") # we use index[0] for name and index[1] for house
 
-# def get_student():
-#     name = input("Name: ")
-#     house = input("House: ")
-#     return (name, house) # (variable1, variable2) in a (Tuple) type
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    return (name, house) # (variable1, variable2) in a (Tuple) type
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 """
 - Notice that (name, house) explicitly tells anyone reading our code that we are returning two values within one. Further, notice how we can index into tuples using student[0] or student[1].
