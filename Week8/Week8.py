@@ -148,22 +148,22 @@ if __name__ == "__main__":
 - Still, our code can be further improved. Notice that there is an unneeded variable. We can remove student = {} because we don’t need to create an empty dictionary.
 """
 
-# def main():
-#     student = get_student()
-#     print(f"{student['name']} from {student['house']}")
+def main():
+    student = get_student()
+    print(f"{student['name']} from {student['house']}")
 
 
-# def get_student():
-#     # student = {}
-#     # student["name"] = input("Name: ")
-#     # student["house"] = input("House: ")
-#     name = input("Name: ")
-#     house = input("House: ")
-#     return {"name": name, "house": house} # Readability for keys 'name' and 'house'. Not use if TOO LONG coding lines...
+def get_student():
+    # student = {}
+    # student["name"] = input("Name: ")
+    # student["house"] = input("House: ")
+    name = input("Name: ")
+    house = input("House: ")
+    return {"name": name, "house": house} # Readability for keys 'name' and 'house'. Not use if TOO LONG coding lines...
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 """
 - Notice we can utilize {} braces in the return statement to create the dictionary and return it all in the same line.
