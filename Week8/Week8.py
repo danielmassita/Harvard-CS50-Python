@@ -197,18 +197,30 @@ Classes
 - We can modify our code as follows to implement our own class called Student:
 """
 
+class Student:
+    ...
+
 def main():
     student = get_student()
-    if student["name"] == "Padma":
-        student["house"] = "Ravenclaw"
-    print(f"{student['name']} from {student['house']}")
+    # if student["name"] == "Padma":
+    #     student["house"] = "Ravenclaw"
+    # print(f"{student['name']} from {student['house']}")
+    print(f"{student.name} from {student.house}")
 
 
 def get_student():
-    name = input("Name: ")
-    house = input("House: ")
-    return {"name": name, "house": house}
+    student = Student() # Calling a function to "class Student", to create an OBJECT of that CLASS (blueprint, mold)
+    # When assinging a OBJECT from a CLASS we are INSTANTIATING (instances)
+    student.name = input("Name: ")
+    student.house = input("House: ")
+    return student
 
 
 if __name__ == "__main__":
     main()
+
+"""
+- Notice by convention that Student is capitalized. Further, notice the ... simply means that we will later return to finish that portion of our code. Further, notice that in get_student, we can create a student of class Student using the syntax student = Student(). Further, notice that we utilize “dot notation” to access attributes of this variable student of class Student.
+- Any time you create a class and you utilize that blueprint to create something, you create what is called an “object” or an “instance”. In the case of our code, student is an object.
+- Further, we can lay some groundwork for the attributes that are expected inside an object whose class is Student. We can modify our code as follows:
+"""
