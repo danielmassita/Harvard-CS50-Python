@@ -23,19 +23,19 @@ Object-Oriented Programming
 - Drawing on our work from previous weeks, we can create functions to abstract away parts of this program.
 """
 
-# def main():
-#     name = get_name()
-#     house = get_house()
-#     print(f"{name} from {house}")
+def main():
+    name = get_name()
+    house = get_house()
+    print(f"{name} from {house}")
 
-# def get_name():
-#     return input("Name: ")
+def get_name():
+    return input("Name: ")
 
-# def get_house():
-#     return input("House: ")
+def get_house():
+    return input("House: ")
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 """
 - Notice how get_name and get_house abstract away some of the needs of our main function. Further, notice how the final lines of the code above tell the compiler to run the main function.
