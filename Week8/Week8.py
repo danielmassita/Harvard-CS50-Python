@@ -170,21 +170,21 @@ if __name__ == "__main__":
 - We can provide our special case with Padma in our dictionary version of our code.
 """
 
-# def main():
-#     student = get_student()
-#     if student['name'] == "Padma":
-#         student['house'] = "Ravenclaw"
-#     print(f"{student['name']} from {student['house']}")
+def main():
+    student = get_student()
+    if student['name'] == "Padma":
+        student['house'] = "Ravenclaw"
+    print(f"{student['name']} from {student['house']}")
 
 
-# def get_student():
-#     name = input("Name: ")
-#     house = input("House: ")
-#     return {"name": name, "house": house} # DICTs are mutables!
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    return {"name": name, "house": house} # DICTs are mutables!
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 """
 - Notice how, similar in spirit to our previous iterations of this code, we can utilize the key names to index into our student dictionary.
