@@ -224,3 +224,24 @@ if __name__ == "__main__":
 - Any time you create a class and you utilize that blueprint to create something, you create what is called an “object” or an “instance”. In the case of our code, student is an object.
 - Further, we can lay some groundwork for the attributes that are expected inside an object whose class is Student. We can modify our code as follows:
 """
+
+class Student:
+    ...
+
+
+def main():
+    student = get_student()
+    print(f"{student.name} from {student.house}")
+
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    student = Student(name, house) # We receive input from user, storing in local variables, calling Student() passing (name, house) as ARGUMENTS
+    # We can have more CONTROL over the correcteness of the data
+    return student
+
+
+if __name__ == "__main__":
+    main()
+
