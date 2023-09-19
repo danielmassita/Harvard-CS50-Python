@@ -42,19 +42,19 @@ if __name__ == "__main__":
 - We can further simplify our program by storing the student as a tuple. A tuple is a sequences of values. Unlike a list, a tuple can’t be modified. In spirit, we are returning two values.
 """
 
-# def main():
-#     name, house = get_student() # unpack technique
-#     print(f"{name} from {house}")
+def main():
+    name, house = get_student() # unpack technique
+    print(f"{name} from {house}")
 
 
-# def get_student():
-#     name = input("Name: ")
-#     house = input("House: ")
-#     return name, house # returns a Tuple
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    return name, house # returns a Tuple
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 """
 - Notice how get_student returns name, house.
