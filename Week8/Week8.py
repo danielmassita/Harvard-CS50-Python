@@ -14,9 +14,9 @@ Object-Oriented Programming
 - To begin, type code student.py in the terminal window and code as follows:
 """
 
-#   name = input("Name: ")
-#   house = input("House: ")
-#   print(f"{name} from {house}")
+  name = input("Name: ")
+  house = input("House: ")
+  print(f"{name} from {house}")
 
 """
 - Notice that this program follows a procedural, step-by-step paradigm: Much like you have seen in prior parts of this course.
