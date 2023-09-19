@@ -252,12 +252,12 @@ if __name__ == "__main__":
 - They are special methods in that sense.
 """
 
-
 class Student:
     def __init__(self, name, house): # Dunder INIT method is an instance method - INITIALIZE THE CONTENT OF THIS OBJECT FROM A CLASS
         self.name = name # parameter self.name
         self.house = house # parameter self.house
         # we're adding variables to objects, aka INSTANCE VARIABLES TO OBJECTS
+        # Installing into the "empty object" the values of name, house
 
 
 def main():
@@ -269,7 +269,8 @@ def get_student():
 
     name = input("Name: ")
     house = input("House: ")
-    student = Student(name, house) # CONSTRUCTOR CALL (construct a student object for me || Insanciate a student object for me || Using class as a MOLD)
+    student = Student(name, house) # CONSTRUCTOR CALL
+    # construct a student object for me || Insanciate a student object for me || Using class as a MOLD to work with arguments (self, name, house)
     # Can pass Student(arguments, arguments) to customize the content of that object.
     # We call the function that was defined with __init__(self, name, house)
     return student
@@ -277,4 +278,3 @@ def get_student():
 
 if __name__ == "__main__":
     main()
-
