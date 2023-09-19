@@ -126,22 +126,22 @@ if __name__ == "__main__":
 - A dictionary could also be utilized in this implementation. Recall that dictionaries provide a key-value pair.
 """
 
-# def main():
-#     student = get_student()
-#     # if student[0] == "Padma":
-#     #     student[1] = "Ravenclaw"
-#     print(f"{student['name']} from {student['house']}") # access the keys 'name' and 'house' but NOT DOUBLE QUOTES because of the f-string
+def main():
+    student = get_student()
+    # if student[0] == "Padma":
+    #     student[1] = "Ravenclaw"
+    print(f"{student['name']} from {student['house']}") # access the keys 'name' and 'house' but NOT DOUBLE QUOTES because of the f-string
 
 
-# def get_student():
-#     student = {} # Starts an empty Dict
-#     student["name"] = input("Name: ") # index[0] is now the KEY 'name'
-#     student["house"] = input("House: ") # index[1] is now the KEY 'house'
-#     return student # wich will be a Dict type from line 130.
+def get_student():
+    student = {} # Starts an empty Dict
+    student["name"] = input("Name: ") # index[0] is now the KEY 'name'
+    student["house"] = input("House: ") # index[1] is now the KEY 'house'
+    return student # wich will be a Dict type from line 130.
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 """
 - Notice in this case, two key-value pairs are returned. An advantage of this approach is that we can index into this dictionary using the keys.
