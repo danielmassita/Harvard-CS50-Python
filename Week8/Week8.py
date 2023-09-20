@@ -278,3 +278,102 @@ def get_student():
 
 if __name__ == "__main__":
     main()
+
+"""
+- Notice that within Student, we standardize the attributes of this class. We can create a function within class Student, called a “method”, that determines the behavior of an object of class Student. Within this function, it takes the name and house passed to it and assigns these variables to this object. Further, notice how the constructor student = Student(name, house) calls this function within the Student class and creates a student. self refers to the current object that was just created.
+- We can simplify our code as follows:
+"""
+
+# class Student:
+#     def __init__(self, name, house):
+#         self.name = name
+#         self.house = house
+
+
+# def main():
+#     student = get_student()
+#     print(f"{student.name} from {student.house}")
+
+
+# def get_student():
+#     name = input("Name: ")
+#     house = input("House: ")
+#     return Student(name, house)
+
+
+# if __name__ == "__main__":
+#     main()
+
+"""
+- Notice how return Student(name, house) simplifies the previous iteration of our code where the constructor statement was run on its own line.
+- You can learn more in Python’s documentation of classes.
+- https://docs.python.org/3/tutorial/classes.html
+
+
+
+raise
+
+- Object-oriented program encourages you to encapusulate all the functionality of a class within the class definition. What if something goes wrong? What if someone tries to type in something random? What if someone tries to create a student without a name? Modify your code as follows:
+- Notice how we check now that a name is provided and a proper house is designated. It turns out we can create our own exceptions that alerts the programmer to a potential error created by the user called raise. In the case above, we raise ValueError with a specific error message.
+"""
+
+class Student:
+    def __init__(self, name, house):
+        # We can use the __init__ and RAISE some errors in the init, to avoid fixing (try/except) the corner cases in the function call get_student()
+        if not name: # if name == ""
+            raise ValueError("Missing name")
+            # print("Missing name")
+            # sys.exit("Missing name") # too hard for exiting the code
+            # return None # will jam the code because there are variables instantiated for the objects
+        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+            raise ValueError("Invalid house")
+
+        self.name = name
+        self.house = house
+
+
+def main():
+    student = get_student()
+    print(f"{student.name} from {student.house}")
+
+
+def get_student(): # What'a abour bugs from user? name = "" (empty) or house == 'Puteiro'
+    name = input("Name: ")
+    house = input("House: ")
+    # try:
+    #     return Student(name, house)
+    # except Value:
+    #     ...
+    return Student(name, house)
+
+if __name__ == "__main__":
+    main()
+
+"""
+- Notice how we check now that a name is provided and a proper house is designated. It turns out we can create our own exceptions that alerts the programmer to a potential error created by the user called raise. In the case above, we raise ValueError with a specific error message.
+- It just so happens that Python allows you to create a specific function by which you can print the attributes of an object. Modify your code as follows:
+"""
+
+class Student:
+    def __init__(self, name, house):
+        if not name:
+            raise ValueError("Missing name")
+        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+            raise ValueError("Invalid house")
+        self.name = name
+        self.house = house
+
+
+def main():
+    student = get_student()
+    print(f"{student.name} from {student.house}")
+
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    return Student(name, house)
+
+
+if __name__ == "__main__":
+    main()
