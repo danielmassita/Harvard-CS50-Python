@@ -284,25 +284,25 @@ if __name__ == "__main__":
 - We can simplify our code as follows:
 """
 
-# class Student:
-#     def __init__(self, name, house):
-#         self.name = name
-#         self.house = house
+class Student:
+    def __init__(self, name, house):
+        self.name = name
+        self.house = house
 
 
-# def main():
-#     student = get_student()
-#     print(f"{student.name} from {student.house}")
+def main():
+    student = get_student()
+    print(f"{student.name} from {student.house}")
 
 
-# def get_student():
-#     name = input("Name: ")
-#     house = input("House: ")
-#     return Student(name, house)
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    return Student(name, house)
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 """
 - Notice how return Student(name, house) simplifies the previous iteration of our code where the constructor statement was run on its own line.
