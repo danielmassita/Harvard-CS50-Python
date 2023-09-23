@@ -355,18 +355,104 @@ if __name__ == "__main__":
 """
 
 class Student:
-    def __init__(self, name, house):
+    def __init__(self, name, house, patronus):
         if not name:
             raise ValueError("Missing name")
         if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
             raise ValueError("Invalid house")
         self.name = name
         self.house = house
+        self.patronus = patronus
+
+    def __str__(self):
+        return f"{self.name} from {self.house}"
 
 
 def main():
     student = get_student()
-    print(f"{student.name} from {student.house}")
+    print(student)
+
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    patronus = input("Patronus: ")
+    return Student(name, house, patronus)
+
+
+if __name__ == "__main__":
+    main()
+
+"""
+- Notice how def __str__(self) provides a means by which a student is returned when called. Therefore, you can now, as the programmer, print an object, its attributes, or almost anything you desire related to that object.
+- __str__ is a built-in method that comes with Python classes. It just so happens that we can create our own methods for a class as well! Modify your code as follows:
+"""
+
+class Student:
+    def __init__(self, name, house, patronus=None):
+        if not name:
+            raise ValueError("Missing name")
+        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+            raise ValueError("Invalid house")
+        if patronus and patronus not in ["Stag", "Otter", "Jack Russell terrier"]:
+            raise ValueError("Invalid patronus")
+        self.name = name
+        self.house = house
+        self.patronus = patronus
+
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+    def charm(self):
+        match self.patronus:
+            case "Stag":
+                return "🐴"
+            case "Otter":
+                return "🦦"
+            case "Jack Russell terrier":
+                return "🐶"
+            case _:
+                return "🪄"
+
+
+def main():
+    student = get_student()
+    print("Expecto Patronum!")
+    print(student.charm())
+
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    patronus = input("Patronus: ") or None
+    return Student(name, house, patronus)
+
+
+if __name__ == "__main__":
+    main()
+
+"""
+- Notice how we define our own method charm. Unlike dictionaries, classes can have built-in functions called methods. In this case, we define our charm method where specific cases have specific results. Further, notice that Python has the ability to utilize emojis directly in our code.
+- Before moving forward, let us remove our patronus code. Modify your code as follows:
+"""
+
+class Student:
+    def __init__(self, name, house):
+        if not name:
+            raise ValueError("Invalid name")
+        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+            raise ValueError("Invalid house")
+        self.name = name
+        self.house = house
+
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+
+def main():
+    student = get_student()
+    student.house = "Number Four, Privet Drive"
+    print(student)
 
 
 def get_student():
@@ -377,3 +463,13 @@ def get_student():
 
 if __name__ == "__main__":
     main()
+
+"""
+- Notice how we have only two methods: __init__ and __str__.
+
+
+
+DECORATORS
+
+- Properties can be utilized to harden our code. In Python, we define properties using function “decorators”, which begin with @. Modify your code as follows:
+"""
