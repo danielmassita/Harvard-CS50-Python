@@ -468,11 +468,72 @@ if __name__ == "__main__":
 - Notice how we have only two methods: __init__ and __str__.
 
 
-
 Decorators
 
 - Properties can be utilized to harden our code. In Python, we define properties using function “decorators”, which begin with @. Modify your code as follows:
+- So here, too, in the spirit of programming a little more defensively, allow me to introduce
+another feature of Python as well namely properties.
+- So a property is really just an attribute that has even more defense mechanisms put into place, a little more functionality implemented
+by you to prevent programmers, like me and you, from messing things up like these attributes. So again, a property is going to
+be an attribute that you and I just have more control over. How? And how we're going to do that is going to use, in just a moment, a feature a keyword known as @property, which is technically a function. Property is a function in Python.
 """
+
+class Student:
+
+    def __init__(self, name, house):
+        # if not name:
+        #     raise ValueError("Invalid name")
+        # if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+        #     raise ValueError("Invalid house")
+        self.name = name
+        self.house = house # NOT USE _ here so we use only ONE Error Check at @house.setter
+
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        if not name:
+            raise ValueError("Missing name")
+        self._name = name
+
+    # Getter - Aqui eu PEGO!
+    @property
+    def house(self):
+        return self._house
+
+    # Setter - Aqui eu DEFINO! Again, Error Checking when we call the function
+    @house.setter
+    def house(self, house):
+        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+            raise ValueError("Invalid house")
+
+        self._house = house
+
+    # When we call main(), and try to circumvent the default (using student.house = "blablabla"), we CREATE a step-by-step functions calls to order things up!
+    # Python reads the script, goes through __init__, __str__, Getter, Setter, main().
+
+def main():
+    student = get_student()
+#    student.house = "Number Four, Privet Drive" # When we try to assign new value student.house... We CALL BACK @property and @setter.house
+    print(student)
+
+    # But because Python knows that, wait a minute, you're trying to assign that is, set a value and that value, a.k.a. house, is now defined as a property you're going to have to go through the setter function instead to even let you change that value. And because I have this raise ValueError. If the house is not as intended, you're not going to be allowed to change it to an invalid value. So I'm protecting the data on the way in, through the init method, and I'm even defending the data if you try to override it there. So I think the only solution for me, the programmer, is, don't try to break my own code. Let me remove that line because it's just not going to work.
+
+    # I don't want you to be able to go in there and just change them at will. I want to have some control over that object so that you can just trust that it's going to be correct as designed. So using a getter and setter really just enables Python to automatically detect when you're trying to manually set a value. The equal sign and the dot, as I've highlighted here, is enough of a clue to Python to realize, wait a minute, Let me see if this class has a setter defined. And if so, I'm going to call that, and I'm not just going to blindly assign the value from right to left. So it's just giving me more control.
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    return Student(name, house)
+
+
+if __name__ == "__main__":
+    main()
 
 class Student:
     def __init__(self, name, house):
