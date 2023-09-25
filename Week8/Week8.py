@@ -474,49 +474,49 @@ Decorators
 - Properties can be utilized to harden our code. In Python, we define properties using function “decorators”, which begin with @. Modify your code as follows:
 """
 
-# class Student:
-#     def __init__(self, name, house):
-#         if not name:
-#             raise ValueError("Invalid name")
-#         # if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
-#         #     raise ValueError("Invalid house")
-#         # With getter @property and setter @house.setter we don't need anymore the error check in __init__
-#         self.name = name
-#         self.house = house
+class Student:
+    def __init__(self, name, house):
+        if not name:
+            raise ValueError("Invalid name")
+        # if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+        #     raise ValueError("Invalid house")
+        # With getter @property and setter @house.setter we don't need anymore the error check in __init__
+        self.name = name
+        self.house = house
 
-#     def __str__(self):
-#         return f"{self.name} from {self.house}"
-
-
-#     # GETTER is a function for a class that gets some attributes (we use @property)
-#     @property
-#     def house(self):
-#         return self._house
-
-#     # SETTER is a function in some class that sets some value (we use @house.setter)
-#     @house.setter
-#     def house(self, house):
-#         if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
-#             raise ValueError("Invalid house")
-#         self._house = house
+    def __str__(self):
+        return f"{self.name} from {self.house}"
 
 
-# def main():
-#     student = get_student()
-# #    student.house = "Number Four, Privet Drive" # We can access this instance variable using DOT NOTATION
-#     print(student) # The line above circumvent the IF conition and the other Error Checking (__init__) so we can escape the first __init__ from Class initialization, but when main() is called, we change the variable (with student.house = 'new data')...
-#     # Classes create control, but not prevent user/developer of messing up the code (we need to work more defensively)
-#     # Let's use PROPERTIES! to prevent programmers of messing up these attributes
-#     # Decorators are functions that modify the behaviour of other functions
+    # GETTER is a function for a class that gets some attributes (we use @property)
+    @property
+    def house(self):
+        return self._house
 
-# def get_student():
-#     name = input("Name: ")
-#     house = input("House: ")
-#     return Student(name, house)
+    # SETTER is a function in some class that sets some value (we use @house.setter)
+    @house.setter
+    def house(self, house):
+        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+            raise ValueError("Invalid house")
+        self._house = house
 
 
-# if __name__ == "__main__":
-#     main()
+def main():
+    student = get_student()
+#    student.house = "Number Four, Privet Drive" # We can access this instance variable using DOT NOTATION
+    print(student) # The line above circumvent the IF conition and the other Error Checking (__init__) so we can escape the first __init__ from Class initialization, but when main() is called, we change the variable (with student.house = 'new data')...
+    # Classes create control, but not prevent user/developer of messing up the code (we need to work more defensively)
+    # Let's use PROPERTIES! to prevent programmers of messing up these attributes
+    # Decorators are functions that modify the behaviour of other functions
+
+def get_student():
+    name = input("Name: ")
+    house = input("House: ")
+    return Student(name, house)
+
+
+if __name__ == "__main__":
+    main()
 
 """
 - Notice how we’ve written @property above a function called house. Doing so defines house as a property of our class. With house as a property, we gain the ability to define how some attribute of our class, _house, should be set and retrieved. Indeed, we can now define a function called a “setter”, via @house.setter, which will be called whenever the house property is set—for example, with student.house = "Gryffindor". Here, we’ve made our setter validate values of house for us. Notice how we raise a ValueError if the value of house is not any of the Harry Potter houses, otherwise, we’ll use house to update the value of _house. Why _house and not house? house is a property of our class, with functions via which a user attempts to set our class attribute. _house is that class attribute itself. The leading underscore, _, indicates to users they need not (and indeed, shouldn’t!) modify this value directly. _house should only be set through the house setter. Notice how the house property simply returns that value of _house, our class attribute that has presumably been validated using our house setter. When a user calls student.house, they’re getting the value of _house through our house “getter”.
