@@ -469,7 +469,6 @@ if __name__ == "__main__":
 
 
 
-
 Decorators
 
 - Properties can be utilized to harden our code. In Python, we define properties using function “decorators”, which begin with @. Modify your code as follows:
