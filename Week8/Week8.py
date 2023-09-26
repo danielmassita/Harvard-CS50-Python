@@ -705,7 +705,6 @@ print(type(dict()))
 print("")
 
 """
-"""
 Class Methods
 
 - Thus far, I've been deliberate in calling all of our variables instance variables and all of our methods instance methods. It turns out there's other types of variables and methods out there, and one of those is called class methods. It turns out that sometimes it's not really necessary or sensible to associate a function with objects of a class, but rather with the class itself. An instance, or an object of a class, is a very specific incarnation thereof. Again, on that neighborhood that has a lot of identical looking buildings, but they're all a little bit different because of different paint and such, sometimes you might have functionality related to each of those houses that isn't distinct or unique for any of the houses.
