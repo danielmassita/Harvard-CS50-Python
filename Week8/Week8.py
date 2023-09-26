@@ -760,4 +760,20 @@ class Hat:
 
 hat = Hat()
 hat.sort("Harry")
+
+"""
+- When should you use a class to represent something in your code?
+- Very often, when you're trying to represent some real world entity or fantasy world entity, like a student, which is something in the real world, like a sorting hat, which, OK, doesn't exist, but hat's certainly do, so quite reasonable to have a class for hat.
+- And that's not always the case that classes represent real world entities. But we've seen thus far that int and stir and list and dict-- these are all structures that you might have in the real world.
+- We have integers and strings of text and other things. So it rather makes sense to represent even those things, more technically, using a class as well.
+- You could use just a dictionary to represent a student or a hat. But again, with classes come all this and even more functionality.
+- But I honestly am not using classes in, really, the "right way" here. Why?
+- Well, in the world of Harry Potter there really is only, to my knowledge, one sorting hat. And yet, here I have gone and implemented a class called hat. And again, a class is like a blueprint, a template, a mold that allows you to create one or more objects thereof.
+- Now, most of my programs Thus far have been pretty simple, and I've just created one student. But certainly, if I spent more time and wrote more code, you could imagine writing one program that has a list of students-- many more students than just the one we keep demonstrating.
+- Yet it would be a little weird-- it's a little inconsistent with the real or the fantasy world of Harry Potter to instantiate one, two, three or more sorting hats. There really is just one. Really one singleton, if you will, which is a term of art in a lot of contexts of programming.
+- So let me propose that we actually improve the design of the sorting hat so that we don't have to instantiate a sorting hat because right now this is kind of allowing me to do something like hat 1 = hat, hat 2 = hat, hat 3 =, and so forth.
+- I don't really need that capability. I really just need to represent the sorting hat with a class, but I don't really need to instantiate it. Why?
+- Because it already exists. I need just one. So it turns out, in Python, that, up until now, we've been using, as I keep calling them, instance methods-- writing functions inside of classes that are automatically passed a reference to self, the current object.
+- But sometimes you just don't need that. Sometimes it suffices to just know what the class is and assume that there might not even be any objects of that class.
+- So in this sense, you can use a class really as a container for data and/or functionality that is just somehow conceptually related-- things related to a sorting hat. And there's this other decorator or function called @classmethod that allows us to do just this.
 """
