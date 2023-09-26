@@ -633,10 +633,8 @@ if __name__ == "__main__":
 
 - You can learn more in Python’s documentation of methods.
 - https://docs.python.org/3/tutorial/classes.html
-
-
-
 """
+
 
 
 """
@@ -706,3 +704,61 @@ print(type(dict()))
 # <class 'dict'>
 print("")
 
+"""
+"""
+Class Methods
+
+- Thus far, I've been deliberate in calling all of our variables instance variables and all of our methods instance methods. It turns out there's other types of variables and methods out there, and one of those is called class methods. It turns out that sometimes it's not really necessary or sensible to associate a function with objects of a class, but rather with the class itself. An instance, or an object of a class, is a very specific incarnation thereof. Again, on that neighborhood that has a lot of identical looking buildings, but they're all a little bit different because of different paint and such, sometimes you might have functionality related to each of those houses that isn't distinct or unique for any of the houses.
+- It's functionality that's going to be exactly the same no matter the house in question. Same in the world of object-oriented programming. Sometimes you want some functionality, some action to be associated with the class itself, no matter what the specific object's own values or instance variables are.
+- And for that, we have a keyword called @classmethod. This is another decorator-- really, another function-- that you can use to specify that this method is not, by default, implicitly an instance method that has access to self, the object itself. This is a class method that's not going to have access to self, but it does know what class it's inside. So what do I mean by this?
+
+- Sometimes, we want to add functionality to a class itself, not to instances of that class.
+- @classmethod is a function that we can use to add functionality to a class as a whole.
+- Here’s an example of not using a class method. In your terminal window, type code hat.py and code as follows:
+"""
+
+# class Hat:
+#     def sort(self, name):
+#         print(name, "is in", "some house")
+
+
+# hat = Hat() # create a local variable and INSTANTIATE a Hat() object.
+# hat.sort("Harry")
+
+# >>> Harry is in some house
+
+""" """
+
+# import random
+
+# class Hat:
+#     def __init__(self):
+#         self.houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
+
+#     def sort(self, name):
+#         # house = random.choice(self.houses) # can be converted into the final part of next line
+#         print(name, "is in", random.choice(self.houses))
+
+
+# hat = Hat()
+# hat.sort("Harry")
+
+"""
+- Notice how when we pass the name of the student to the sorting hat, it will tell us what house is assigned to the student. Notice that hat = Hat() instantiates a hat. The sort functionality is always handled by the instance of the class Hat. By executing hat.sort("Harry"), we pass the name of the student to the sort method of the particular instance of Hat, which we’ve called hat.
+
+- We may want, though, to run the sort function without creating a particular instance of the sorting hat (there’s only one, after all!). We can modify our code as follows:
+"""
+
+import random
+
+class Hat:
+    def __init__(self):
+        self.houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
+
+    def sort(self, name):
+        print(name, "is in", random.choice(self.houses))
+
+
+hat = Hat()
+hat.sort("Harry")
+"""
