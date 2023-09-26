@@ -716,13 +716,13 @@ Class Methods
 - Here’s an example of not using a class method. In your terminal window, type code hat.py and code as follows:
 """
 
-# class Hat:
-#     def sort(self, name):
-#         print(name, "is in", "some house")
+class Hat:
+    def sort(self, name):
+        print(name, "is in", "some house")
 
 
-# hat = Hat() # create a local variable and INSTANTIATE a Hat() object.
-# hat.sort("Harry")
+hat = Hat() # create a local variable and INSTANTIATE a Hat() object.
+hat.sort("Harry")
 
 # >>> Harry is in some house
 
