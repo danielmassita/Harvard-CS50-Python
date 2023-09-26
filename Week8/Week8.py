@@ -728,19 +728,19 @@ Class Methods
 
 """ """
 
-# import random
+import random
 
-# class Hat:
-#     def __init__(self):
-#         self.houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
+class Hat:
+    def __init__(self):
+        self.houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
 
-#     def sort(self, name):
-#         # house = random.choice(self.houses) # can be converted into the final part of next line
-#         print(name, "is in", random.choice(self.houses))
+    def sort(self, name):
+        # house = random.choice(self.houses) # can be converted into the final part of next line
+        print(name, "is in", random.choice(self.houses))
 
 
-# hat = Hat()
-# hat.sort("Harry")
+hat = Hat()
+hat.sort("Harry")
 
 """
 - Notice how when we pass the name of the student to the sorting hat, it will tell us what house is assigned to the student. Notice that hat = Hat() instantiates a hat. The sort functionality is always handled by the instance of the class Hat. By executing hat.sort("Harry"), we pass the name of the student to the sort method of the particular instance of Hat, which we’ve called hat.
