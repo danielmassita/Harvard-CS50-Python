@@ -792,7 +792,12 @@ class Hat:
     def sort(cls, name):
         print(name, "is in", random.choice(cls.houses)) # self.houses is no longer used, for we don't have INSTANCE VAR, but we have CLASS VAR and we use CLS METHOD.
 
-
 # hat = Hat() # We don't need anymore to INSTANTIATE any hat object...
 Hat.sort("Harry") # We use Hat. for the CLS to use the class and .sort to use the CLS Method
 
+
+"""
+- Notice how the __init__ method is removed because we don’t need to instantiate a hat anywhere in our code. self, therefore, is no longer relevant and is removed. We specify this sort as a @classmethod, replacing self with cls. Finally, notice how Hat is capitalized by convention near the end of this code, because this is the name of our class.
+- Returning back to students.py we can modify our code as follows, addressing some missed opportunities related to @classmethods:
+- Notice that get_student is removed and a @classmethod called get is created. This method can now be called without having to create a student first.
+"""
