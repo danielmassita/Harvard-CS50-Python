@@ -777,3 +777,22 @@ hat.sort("Harry")
 - But sometimes you just don't need that. Sometimes it suffices to just know what the class is and assume that there might not even be any objects of that class.
 - So in this sense, you can use a class really as a container for data and/or functionality that is just somehow conceptually related-- things related to a sorting hat. And there's this other decorator or function called @classmethod that allows us to do just this.
 """
+
+
+import random
+
+class Hat:
+#    def __init__(self): # As we ONLY HAVE ONE HAT, and FIXED HOUSES, we don't need to __INIT__ (instantiate) multiple houses, we don't need the INIT method because it's gonna be a mold, a blueprint...
+
+    # CLASS VARIABLE exist within the class itself and there is just ONE copy of that variable to share in all the objects
+    houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
+
+    # There is only ONE sorting hat, so we don't need to
+    @classmethod
+    def sort(cls, name):
+        print(name, "is in", random.choice(cls.houses)) # self.houses is no longer used, for we don't have INSTANCE VAR, but we have CLASS VAR and we use CLS METHOD.
+
+
+# hat = Hat() # We don't need anymore to INSTANTIATE any hat object...
+Hat.sort("Harry") # We use Hat. for the CLS to use the class and .sort to use the CLS Method
+
