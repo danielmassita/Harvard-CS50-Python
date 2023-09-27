@@ -795,6 +795,37 @@ class Hat:
 # hat = Hat() # We don't need anymore to INSTANTIATE any hat object...
 Hat.sort("Harry") # We use Hat. for the CLS to use the class and .sort to use the CLS Method
 
+""" """
+
+
+class Student:
+    def __init__(self, name, house):
+        self.name = name
+        self.house = house
+
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+    @classmethod # I can CALL a student.method without instantiating a student object first.
+    def get(cls): # The get() functionality is built-in the class Student.
+        name = input("Name: ")
+        house = input("House: ")
+        return cls(name, house)
+
+
+def main():
+    student = Student.get() # Migrated the logic from get_student to the class, so I can Student.get() to call the method as function
+    print(student)
+
+# This FUNCTION call should be INSIDE the class, to make it encapsulated, so we need only to look at the Student class. NOT wrong, but BAD design, we could improve our code, not a correcteness concern...
+# def get_student():
+#     name = input("Name: ")
+#     house = input("House: ")
+#     return Student(name, house)
+
+if __name__ == "__main__":
+    main()
+
 
 """
 - Notice how the __init__ method is removed because we don’t need to instantiate a hat anywhere in our code. self, therefore, is no longer relevant and is removed. We specify this sort as a @classmethod, replacing self with cls. Finally, notice how Hat is capitalized by convention near the end of this code, because this is the name of our class.
