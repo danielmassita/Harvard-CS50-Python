@@ -801,3 +801,28 @@ Hat.sort("Harry") # We use Hat. for the CLS to use the class and .sort to use th
 - Returning back to students.py we can modify our code as follows, addressing some missed opportunities related to @classmethods:
 - Notice that get_student is removed and a @classmethod called get is created. This method can now be called without having to create a student first.
 """
+
+
+class Student:
+    def __init__(self, name, house):
+        self.name = name
+        self.house = house
+
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+    @classmethod
+    def get(cls):
+        name = input("Name: ")
+        house = input("House: ")
+        return cls(name, house)
+
+
+def main():
+    student = Student.get()
+    print(student)
+
+
+if __name__ == "__main__":
+    main()
+
