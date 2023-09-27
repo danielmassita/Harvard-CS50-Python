@@ -974,14 +974,14 @@ Inheritance and Exceptions
 
 """ vault.py """
 
-# class Vault():
-#     def __init__(self, galleons=0, sickles=0, knuts=0):
-#         self.galleons = galleons
-#         self.sickles = sickles
-#         self.knuts = knuts
+class Vault():
+    def __init__(self, galleons=0, sickles=0, knuts=0):
+        self.galleons = galleons
+        self.sickles = sickles
+        self.knuts = knuts
 
-# potter = Vault(100, 50, 25)
-# print(potter) # <__main__.Vault object at 0x7f408d3f82d0>
+potter = Vault(100, 50, 25)
+print(potter) # <__main__.Vault object at 0x7f408d3f82d0>
 
 """ <__main__.Vault object at 0x7f408d3f82d0> """
 
