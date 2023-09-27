@@ -930,10 +930,12 @@ student = Student("Harry", "Gryffindor")
 professor = Professor("Severus", "Defense Against the Dark Arts")
 
 print(wizard) # <__main__.Wizard object at 0x7f26be4c9790>
-print("")
+print(f"The wizard is going to be {wizard.name}")
 print(student) # <__main__.Student object at 0x7f26be4c97d0>
-print("")
+print(f"The student is going to be {student.name} from {student.house}")
 print(professor) # <__main__.Professor object at 0x7f26be4c9850>
+print(f"The teacher {professor.name} is going to be teaching {professor.subject}")
+
 
 """
 - Notice that there is a class above called Wizard and a class called Student. Further, notice that there is a class called Professor. Both students and professors have names. Also, both students and professors are wizards. Therefore, both Student and Professor inherit the characteristics of Wizard. Within the “child” class Student, Student can inherit from the “parent” or “super” class Wizard as the line super().__init__(name) runs the init method of Wizard. Finally, notice that the last lines of this code create a wizard called Albus, a student called Harry, and so on.
