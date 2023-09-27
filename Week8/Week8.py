@@ -970,3 +970,162 @@ Inheritance and Exceptions
 - You can learn more in Python’s documentation of exceptions.
 - https://docs.python.org/3/library/exceptions.html
 """
+
+
+""" vault.py """
+
+# class Vault():
+#     def __init__(self, galleons=0, sickles=0, knuts=0):
+#         self.galleons = galleons
+#         self.sickles = sickles
+#         self.knuts = knuts
+
+# potter = Vault(100, 50, 25)
+# print(potter) # <__main__.Vault object at 0x7f408d3f82d0>
+
+""" <__main__.Vault object at 0x7f408d3f82d0> """
+
+# class Vault():
+#     def __init__(self, galleons=0, sickles=0, knuts=0):
+#         self.galleons = galleons
+#         self.sickles = sickles
+#         self.knuts = knuts
+
+#     def __str__(self):
+#         return f"{self.galleons} Galleons, {self.sickles} Sickles, {self.knuts} Knuts"
+
+# potter = Vault(100, 50, 25)
+# print(potter)
+
+# weasley = Vault(25, 50, 100)
+# print(weasley)
+
+# galleons = potter.galleons + weasley.galleons
+# sickles = potter.sickles + weasley.sickles
+# knuts = potter.knuts + weasley.knuts
+
+# total = Vault(galleons, sickles, knuts)
+# print(total)
+
+"""
+Could we do something like, in spite of:
+"""
+    # potter = Vault(100, 50, 25)
+    # print(potter)
+
+    # weasley = Vault(25, 50, 100)
+    # print(weasley)
+
+    # galleons = potter.galleons + weasley.galleons
+    # sickles = potter.sickles + weasley.sickles
+    # knuts = potter.knuts + weasley.knuts
+
+    # total = Vault(galleons, sickles, knuts)
+    # print(total)
+"""
+We work with:
+"""
+    # total = potter + weasley
+    # print(total)
+
+    # >>> TypeError: unsupported operand type(s) for +: 'Vault' and 'Vault'
+
+"""
+We can use OPERATOR OVERLOADING for the + signal
+
+- Notice how the __str__ method returns a formatted string. Further, notice how the __add__ method allows for the addition of the values of two vaults. self is what is on the left of the + operand. other is what is right of the +.
+- You can learn more in Python’s documentation of operator overloading.
+- https://docs.python.org/3/reference/datamodel.html#special-method-names
+
+"""
+
+# class Vault():
+#     def __init__(self, galleons=0, sickles=0, knuts=0):
+#         self.galleons = galleons
+#         self.sickles = sickles
+#         self.knuts = knuts
+
+#     def __str__(self):
+#         return f"{self.galleons} Galleons, {self.sickles} Sickles, {self.knuts} Knuts"
+
+#     def __add__(self, other):
+#         ...
+
+# potter = Vault(100, 50, 25)
+# print(potter)
+
+# weasley = Vault(25, 50, 100)
+# print(weasley)
+
+# # galleons = potter.galleons + weasley.galleons
+# # sickles = potter.sickles + weasley.sickles
+# # knuts = potter.knuts + weasley.knuts
+
+# total = potter + weasley
+# print(total)
+
+"""
+But let's add this third.
+
+- Let me go into the class here and define __add__ and then specify its first parameter as self, as before, and then a second parameter for this particular method called, by convention, other.
+- Now, as always, I could name those parameters anything I want, but I'm going to stick with convention here.
+- And now, inside of this method, am I going to have to now add together the contents of two vaults?
+- Well, what two vaults?
+- Well, if we scroll down to our goal at hand, the goal, of course, is to add this vault plus this other vault-- potter plus weasley, respectively.
+- Well, it turns out, in Python, that, when you do overload an operator like plus, what's going to happen automatically, as soon as Python sees that, is it's going to call that __add__ method, and it's going to pass into it to arguments-- whatever the operand is on the left-- potter, in this case-- and whatever the operand is on the right-- weasley, in this case.
+- And those values are going to get passed in as self and other, respectively.
+- What that means is that we can access their contents up here in our implementation of add as follows.
+- Let me go ahead and define a local variable called galleons and set that equal to, for instance, the sum of self.galleons-- whatever's in Potter's vault in this case, plus whatever is in Wesley's vault in this case, which would be other.galleons.
+- Let me do the same for sickles. self.sickles + other.sickles.
+- And let me lastly do that for knuts. So self.knuts + other.knuts.
+- But at the end of the day, I'm going to need to return a brand new bigger vault that contains all of those contents together.
+- And if we ultimately want to assign that bigger vault to a variable like total here, on the left, we'd better return a value from this add method.
+- So I'm going to go ahead and give myself a brand new vault, as by returning capital Vault, which of course, is going to call my vault function into which I can now pass some of those initialization arguments.
+- Well, how many galleon, sickles, and knuts do I want this brand new vault to contain?
+- Well, I want it to contain this many galleons this many sickles, and this many knuts.
+- So ultimately, what we're doing in this implementation of add is adding together those galleons, sickles, and knuts, passing them to the vault function so that we get a brand new bigger vault, and return that altogether.
+- So now I've defined this new special method called add that should now just make plus work for two vaults.
+- Let's see.
+
+"""
+
+class Vault():
+    def __init__(self, galleons=0, sickles=0, knuts=0):
+        self.galleons = galleons
+        self.sickles = sickles
+        self.knuts = knuts
+
+    def __str__(self):
+        return f"{self.galleons} Galleons, {self.sickles} Sickles, {self.knuts} Knuts"
+
+    def __add__(self, other):
+        galleons = self.galleons + other.galleons
+        sickles = self.sickles + other.sickles
+        knuts = self.knuts + other.knuts
+        return Vault(galleons, sickles, knuts)
+
+
+potter = Vault(100, 50, 25)
+print(potter)
+
+weasley = Vault(25, 50, 100)
+print(weasley)
+
+total = potter + weasley
+print(total)
+
+"""
+
+Summing Up
+
+Now, you’ve learned a whole new level of capability through object-oriented programming.
+
+    Object-oriented programming
+    Classes
+    raise
+    Class Methods
+    Static Methods
+    Inheritance
+    Operator Overloading
+
+"""
